@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Brand Extended Colors
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          dark: "hsl(var(--gold-dark))",
+        },
+        "blue-deep": "hsl(var(--blue-deep))",
+        "blue-light": "hsl(var(--blue-light))",
+        // Exam Colors
+        jee: "hsl(var(--jee-blue))",
+        neet: "hsl(var(--neet-green))",
+        kcet: "hsl(var(--kcet-orange))",
+        eapcet: "hsl(var(--eapcet-pink))",
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,88 +1,123 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import logo from '@/assets/asli-prep-logo.jpg';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-16">
+    <footer className="section-navy pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <img src={logo} alt="Asli Prep Foundation" className="h-16 w-auto rounded-lg mb-4" />
-            <p className="text-primary-foreground/70 mb-6">
-              Shaping Tomorrow's Leaders with quality education and expert mentorship.
+            <p className="text-white/70 mb-4">
+              Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS
             </p>
-            <div className="flex gap-4">
-              <SocialIcon icon={Facebook} />
-              <SocialIcon icon={Twitter} />
-              <SocialIcon icon={Instagram} />
-              <SocialIcon icon={Linkedin} />
-              <SocialIcon icon={Youtube} />
-            </div>
+            <a 
+              href="https://www.aslilearn.ai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-medium"
+            >
+              Meet VIDYA AI <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
+
+          {/* Programs */}
+          <div>
+            <h4 className="text-white font-bold text-lg mb-4">Our Programs</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="#programs" className="text-white/70 hover:text-accent transition-colors">
+                  Alpha - Foundation Program
+                </a>
+              </li>
+              <li>
+                <a href="#programs" className="text-white/70 hover:text-accent transition-colors">
+                  Beta - IIT/NEET Preparation
+                </a>
+              </li>
+              <li>
+                <a href="#programs" className="text-white/70 hover:text-accent transition-colors">
+                  Gamma - Olympiad Excellence
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/70 hover:text-accent transition-colors">
+                  For Schools (B2B)
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-accent">Quick Links</h4>
+            <h4 className="text-white font-bold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <FooterLink href="#">Home</FooterLink>
-              <FooterLink href="#courses">Courses</FooterLink>
-              <FooterLink href="#about">About Us</FooterLink>
-              <FooterLink href="#contact">Contact</FooterLink>
+              <li>
+                <a href="#about" className="text-white/70 hover:text-accent transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/70 hover:text-accent transition-colors">
+                  Success Stories
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/70 hover:text-accent transition-colors">
+                  Resources & Blog
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-white/70 hover:text-accent transition-colors">
+                  Contact Us
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Courses */}
+          {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-4 text-accent">Courses</h4>
-            <ul className="space-y-3">
-              <FooterLink href="#">JEE Preparation</FooterLink>
-              <FooterLink href="#">NEET Preparation</FooterLink>
-              <FooterLink href="#">KCET Preparation</FooterLink>
-              <FooterLink href="#">EAPCET Preparation</FooterLink>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="font-bold text-lg mb-4 text-accent">Support</h4>
-            <ul className="space-y-3">
-              <FooterLink href="#">Help Center</FooterLink>
-              <FooterLink href="#">Privacy Policy</FooterLink>
-              <FooterLink href="#">Terms of Service</FooterLink>
-              <FooterLink href="#">FAQs</FooterLink>
+            <h4 className="text-white font-bold text-lg mb-4">Contact Us</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-white/70 text-sm">
+                  Plot No. 47, Rd No: 4A, Golden Tulip Estates, Kondapur, Hyderabad - 500084
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-accent flex-shrink-0" />
+                <a href="tel:+919346832477" className="text-white/70 hover:text-accent">
+                  +91 9346832477
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-accent flex-shrink-0" />
+                <a href="mailto:info@asliprep.com" className="text-white/70 hover:text-accent">
+                  info@asliprep.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8 text-center">
-          <p className="text-primary-foreground/60">
-            © 2024 Asli Prep Foundation. All rights reserved.
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-white/50 text-sm">
+              © {new Date().getFullYear()} Asli Prep Foundation. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-white/50 hover:text-accent text-sm">Privacy Policy</a>
+              <a href="#" className="text-white/50 hover:text-accent text-sm">Terms of Service</a>
+              <a href="https://www.asliprep.com" className="text-white/50 hover:text-accent text-sm">www.asliprep.com</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
 };
-
-const SocialIcon = ({ icon: Icon }: { icon: React.ElementType }) => (
-  <a 
-    href="#" 
-    className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-  >
-    <Icon className="h-5 w-5" />
-  </a>
-);
-
-const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <li>
-    <a 
-      href={href} 
-      className="text-primary-foreground/70 hover:text-accent transition-colors duration-200"
-    >
-      {children}
-    </a>
-  </li>
-);
 
 export default Footer;

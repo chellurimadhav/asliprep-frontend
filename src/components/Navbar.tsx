@@ -1,94 +1,135 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/asli-prep-logo.jpg';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'Programs', href: '#programs' },
-    { label: 'Why Us', href: '#about' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact', href: '#contact' },
+  const mainLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Programs', href: '/#programs' },
+    { label: 'Why Us', href: '/#about' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
+  const moreLinks = [
+    { label: 'For Schools', href: '/for-schools' },
+    { label: 'Meet VIDYA', href: '/meet-vidya' },
+    { label: 'Resources', href: '/resources' },
+    { label: 'Testimonials', href: '/#testimonials' },
+  ];
+
+  const linkClass = "nav-link-hover text-foreground/80 hover:text-primary font-medium text-sm transition-colors duration-300 py-2";
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
-            <img src={logo} alt="Asli Prep Foundation" className="h-12 md:h-14 w-auto rounded-lg" />
+          <a href="/" className="flex items-center shrink-0">
+            <img src="/images/asliprepfound.png" alt="ASLI Prep Foundation" className="h-10 md:h-12 w-auto" />
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200"
-              >
+          {/* Desktop Navigation - compact layout */}
+          <div className="hidden lg:flex items-center gap-6">
+            {mainLinks.map((link) => (
+              <a key={link.label} href={link.href} className={linkClass}>
                 {link.label}
               </a>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`${linkClass} flex items-center gap-1 outline-none`}>
+                More <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[160px]">
+                {moreLinks.map((link) => (
+                  <DropdownMenuItem key={link.label} asChild>
+                    <a href={link.href} className="cursor-pointer">
+                      {link.label}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <a 
-              href="https://www.aslilearn.ai" 
-              target="_blank" 
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <a
+              href="https://www.aslilearn.ai"
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 font-medium transition-colors"
+              className="text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
             >
               Meet VIDYA
             </a>
-            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold px-6">
-              Partner With Us
-            </Button>
+            <a href="/#contact">
+              <Button size="sm" className="btn-lift bg-primary hover:bg-primary/90 text-white font-semibold h-9 px-5 rounded-lg">
+                Partner With Us
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 -mr-2 rounded-lg text-foreground hover:bg-muted/80 transition-colors"
+            aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-white">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-foreground/80 hover:text-primary font-medium transition-colors px-2 py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a 
-                href="https://www.aslilearn.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-primary font-medium px-2 py-2"
+        {/* Mobile Navigation - slide down */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
+            isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 invisible'
+          }`}
+        >
+          <div className="py-4 space-y-1">
+            {mainLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`block ${linkClass} px-2 py-2.5 rounded-lg hover:bg-muted/60`}
                 onClick={() => setIsOpen(false)}
               >
-                Meet VIDYA →
+                {link.label}
               </a>
-              <Button className="bg-primary hover:bg-primary/90 text-white font-semibold mt-2">
+            ))}
+            {moreLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`block ${linkClass} px-2 py-2.5 rounded-lg hover:bg-muted/60`}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="https://www.aslilearn.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-primary font-semibold px-2 py-2.5 rounded-lg hover:bg-primary/5"
+              onClick={() => setIsOpen(false)}
+            >
+              Meet VIDYA →
+            </a>
+            <a href="/#contact" onClick={() => setIsOpen(false)} className="block pt-2">
+              <Button className="btn-lift w-full bg-primary hover:bg-primary/90 text-white font-semibold h-10 rounded-lg">
                 Partner With Us
               </Button>
-            </div>
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

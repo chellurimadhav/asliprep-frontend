@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
-import logo from '@/assets/asli-prep-logo.jpg';
+import AnimateIn from './AnimateIn';
 
 const Footer = () => {
   return (
@@ -7,10 +7,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
+          <AnimateIn animation="fade-up" delay={0} duration={500}>
           <div>
-            <img src={logo} alt="Asli Prep Foundation" className="h-16 w-auto rounded-lg mb-4" />
+            <img src="/images/asliprepfound.png" alt="ASLI Prep Foundation" className="h-16 w-auto mb-4" />
             <p className="text-white/70 mb-4">
-              Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS
+              Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!
             </p>
             <a 
               href="https://www.aslilearn.ai" 
@@ -21,62 +22,68 @@ const Footer = () => {
               Meet VIDYA AI <ExternalLink className="h-4 w-4" />
             </a>
           </div>
+          </AnimateIn>
 
           {/* Programs */}
+          <AnimateIn animation="fade-up" delay={80} duration={500}>
           <div>
             <h4 className="text-white font-bold text-lg mb-4">Our Programs</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#programs" className="text-white/70 hover:text-accent transition-colors">
-                  Alpha - Foundation Program
+                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors">
+                  Alpha – Foundation Program
                 </a>
               </li>
               <li>
-                <a href="#programs" className="text-white/70 hover:text-accent transition-colors">
-                  Beta - IIT/NEET Preparation
+                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors">
+                  Beta – IIT/NEET Preparation
                 </a>
               </li>
               <li>
-                <a href="#programs" className="text-white/70 hover:text-accent transition-colors">
-                  Gamma - Olympiad Excellence
+                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors">
+                  Gamma – Olympiad Excellence
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/for-schools" className="text-white/70 hover:text-accent transition-colors">
                   For Schools (B2B)
                 </a>
               </li>
             </ul>
           </div>
+          </AnimateIn>
 
           {/* Quick Links */}
+          <AnimateIn animation="fade-up" delay={160} duration={500}>
           <div>
             <h4 className="text-white font-bold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#about" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/about" className="text-white/70 hover:text-accent transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#testimonials" className="text-white/70 hover:text-accent transition-colors">
                   Success Stories
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-accent transition-colors">
-                  Resources & Blog
+                <a href="/resources" className="text-white/70 hover:text-accent transition-colors">
+                  Resources
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#contact" className="text-white/70 hover:text-accent transition-colors">
                   Contact Us
                 </a>
               </li>
             </ul>
           </div>
+          </AnimateIn>
 
           {/* Contact */}
+          <AnimateIn animation="fade-up" delay={240} duration={500}>
           <div>
             <h4 className="text-white font-bold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-4">
@@ -100,6 +107,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          </AnimateIn>
         </div>
 
         {/* Bottom Bar */}

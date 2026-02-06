@@ -1,10 +1,11 @@
-import { Star, Rocket, Trophy, BookOpen, Brain, Target, CheckCircle } from 'lucide-react';
+import { Star, Rocket, Trophy, BookOpen, Target } from 'lucide-react';
+import ProgramComparison from './ProgramComparison';
+import AnimateIn from './AnimateIn';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const programs = [
   {
     name: 'ALPHA',
-    emoji: '⭐',
     tagline: 'Strong Foundation, Board-Aligned',
     target: 'Students building fundamental concepts',
     grades: 'Grades V to X',
@@ -17,7 +18,6 @@ const programs = [
   },
   {
     name: 'BETA',
-    emoji: '🚀',
     tagline: 'Advanced IIT/NEET Preparation',
     target: 'Students ready for competitive exam prep',
     grades: 'Grades VIII to X',
@@ -30,7 +30,6 @@ const programs = [
   },
   {
     name: 'GAMMA',
-    emoji: '🏆',
     tagline: 'Olympiad-Level Excellence',
     target: 'Top achievers aiming for national/international Olympiads',
     grades: 'Grades VI to X',
@@ -47,33 +46,45 @@ const Programs = () => {
   return (
     <section id="programs" className="py-20 section-teal">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <AnimateIn animation="fade-up" duration={900} className="text-center mb-16">
           <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4">
             THREE-TIER LEARNING SYSTEM
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-secondary mb-4">
-            Choose Your <span className="text-gradient-teal">Path to Success</span>
+            Program Overview: Alpha, Beta & <span className="text-gradient-teal">Gamma</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Our differentiated learning programs cater to every student's unique needs and aspirations
+            Visual comparison of Alpha, Beta, and Gamma versions. Building Strong Foundations for Competitive Success.
           </p>
-        </div>
+        </AnimateIn>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {programs.map((program, index) => (
+          {programs.map((program, index) => {
+            const IconComponent = program.icon;
+            const iconClass = program.name === 'ALPHA' ? 'program-icon-star' : program.name === 'BETA' ? 'program-icon-rocket' : 'program-icon-trophy';
+            return (
+            <AnimateIn key={index} animation="fade-up" delay={index * 150} duration={800}>
             <Card 
               key={index} 
-              className={`${program.bgClass} border-0 card-hover overflow-hidden relative`}
+              className={`program-card ${program.bgClass} border-0 card-hover overflow-hidden relative`}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <CardHeader className="relative z-10">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-4xl">{program.emoji}</span>
-                  <CardTitle className="text-3xl font-extrabold">
-                    {program.name}
-                  </CardTitle>
+                <div className="flex items-center gap-4 mb-2">
+                  <div className={`program-icon-wrapper w-14 h-14 rounded-xl flex items-center justify-center bg-white/20 backdrop-blur-sm border border-white/30 shrink-0 ${iconClass}`}>
+                    <IconComponent 
+                    className={`w-8 h-8 text-white drop-shadow-lg ${program.name === 'ALPHA' ? 'fill-white' : ''}`} 
+                    strokeWidth={program.name === 'ALPHA' ? 1.5 : 2.5} 
+                    fill={program.name === 'ALPHA' ? 'white' : 'none'} 
+                  />
+                  </div>
+                  <div>
+                    <CardTitle className="text-3xl font-extrabold">
+                      {program.name}
+                    </CardTitle>
+                    <p className="text-lg font-semibold opacity-90">{program.tagline}</p>
+                  </div>
                 </div>
-                <p className="text-lg font-semibold opacity-90">{program.tagline}</p>
               </CardHeader>
               <CardContent className="relative z-10 space-y-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
@@ -103,27 +114,18 @@ const Programs = () => {
                   </div>
                 </div>
 
-                <button className="w-full mt-4 bg-white/20 hover:bg-white/30 transition-all py-3 rounded-xl font-bold">
+                <button className="btn-lift w-full mt-4 bg-white/20 hover:bg-white/30 transition-all py-3 rounded-xl font-bold">
                   Explore {program.name} Program →
                 </button>
               </CardContent>
             </Card>
-          ))}
+            </AnimateIn>
+            );
+          })}
         </div>
 
         {/* Program Comparison CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-4 bg-white rounded-2xl shadow-xl p-6">
-            <Brain className="h-10 w-10 text-primary" />
-            <div className="text-left">
-              <p className="font-bold text-secondary text-lg">Not sure which program is right?</p>
-              <p className="text-muted-foreground">Compare all programs side by side</p>
-            </div>
-            <button className="bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all">
-              Compare Programs
-            </button>
-          </div>
-        </div>
+        <ProgramComparison />
       </div>
     </section>
   );

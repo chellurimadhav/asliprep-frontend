@@ -58,17 +58,23 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // Brand Extended Colors
+        teal: {
+          light: "hsl(var(--teal-light))",
+          DEFAULT: "hsl(var(--primary))",
+          dark: "hsl(var(--teal-dark))",
+        },
+        navy: {
+          DEFAULT: "hsl(var(--secondary))",
+          deep: "hsl(var(--navy-deep))",
+        },
         gold: {
-          DEFAULT: "hsl(var(--gold))",
+          DEFAULT: "hsl(var(--accent))",
           dark: "hsl(var(--gold-dark))",
         },
-        "blue-deep": "hsl(var(--blue-deep))",
-        "blue-light": "hsl(var(--blue-light))",
-        // Exam Colors
-        jee: "hsl(var(--jee-blue))",
-        neet: "hsl(var(--neet-green))",
-        kcet: "hsl(var(--kcet-orange))",
-        eapcet: "hsl(var(--eapcet-pink))",
+        // Program Colors
+        alpha: "hsl(var(--alpha-color))",
+        beta: "hsl(var(--beta-color))",
+        gamma: "hsl(var(--gamma-color))",
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],

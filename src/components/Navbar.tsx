@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/asli-prep-logo.jpg';
 
@@ -8,13 +8,14 @@ const Navbar = () => {
 
   const navLinks = [
     { label: 'Home', href: '#' },
-    { label: 'Courses', href: '#courses' },
-    { label: 'About', href: '#about' },
+    { label: 'Programs', href: '#programs' },
+    { label: 'Why Us', href: '#about' },
+    { label: 'Testimonials', href: '#testimonials' },
     { label: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -35,10 +36,18 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6">
-              Login
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-4">
+            <a 
+              href="https://www.aslilearn.ai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 font-medium transition-colors"
+            >
+              Meet VIDYA
+            </a>
+            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold px-6">
+              Partner With Us
             </Button>
           </div>
 
@@ -53,7 +62,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border bg-white">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
@@ -65,8 +74,17 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-2">
-                Login
+              <a 
+                href="https://www.aslilearn.ai" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary font-medium px-2 py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Meet VIDYA →
+              </a>
+              <Button className="bg-primary hover:bg-primary/90 text-white font-semibold mt-2">
+                Partner With Us
               </Button>
             </div>
           </div>

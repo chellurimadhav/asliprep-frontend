@@ -58,7 +58,7 @@ const StatCard = ({
 
   if (variant === 'dark') {
     return (
-      <div ref={ref} className="text-center p-6 md:p-8 bg-white/15 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all duration-300 group">
+      <div ref={ref} className="text-center p-4 sm:p-5 md:p-8 bg-white/15 rounded-xl sm:rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all duration-300 group min-w-0 overflow-hidden">
         <div className="mb-3 flex justify-center [&_svg]:text-white/90 [&_svg]:transition-transform [&_svg]:duration-300 group-hover:[&_svg]:scale-110">{icon}</div>
         <div className="text-2xl md:text-4xl font-bold text-accent tabular-nums">{count}{suffix}</div>
         <div className="text-sm md:text-base text-white/80 font-medium mt-1">{label}</div>
@@ -67,10 +67,10 @@ const StatCard = ({
   }
 
   return (
-    <div ref={ref} className="text-center p-6 md:p-8 bg-white rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-300 group">
+    <div ref={ref} className="text-center p-4 sm:p-5 md:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-300 group min-w-0 overflow-hidden">
       <div className="mb-3 flex justify-center text-primary [&_svg]:text-primary [&_svg]:transition-transform [&_svg]:duration-300 group-hover:[&_svg]:scale-105">{icon}</div>
-      <div className="text-2xl md:text-4xl font-bold text-primary tabular-nums">{count}{suffix}</div>
-      <div className="text-sm md:text-base text-muted-foreground font-medium mt-1">{label}</div>
+      <div className="text-xl sm:text-2xl md:text-4xl font-bold text-primary tabular-nums truncate">{count}{suffix}</div>
+      <div className="text-xs sm:text-sm md:text-base text-muted-foreground font-medium mt-1 line-clamp-2">{label}</div>
     </div>
   );
 };
@@ -92,7 +92,7 @@ const defaultStats = [
 export default function AnimatedStats({ variant = 'light', preset = 'default' }: { variant?: 'dark' | 'light'; preset?: 'hero' | 'default' }) {
   const stats = preset === 'hero' ? heroStats : defaultStats;
   return (
-    <div className="grid grid-cols-2 gap-4 md:gap-6">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 min-w-0">
       {stats.map((s, i) => (
         <StatCard key={i} number={s.number} suffix={s.suffix} label={s.label} icon={s.icon} duration={s.duration ?? 2000} variant={variant} />
       ))}

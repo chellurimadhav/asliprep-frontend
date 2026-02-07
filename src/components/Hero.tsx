@@ -5,7 +5,7 @@ import AnimateIn from './AnimateIn';
 
 const Hero = () => {
   return (
-    <section className="relative pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
+    <section className="relative pt-20 pb-24 sm:pb-28 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-x-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
       {/* 3D Background Objects - styled for light background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-[10%] w-36 h-36 bg-primary/10 rounded-3xl animate-float-slow" style={{ transform: 'rotate(15deg)' }} />
@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="absolute top-1/4 right-[45%] w-14 h-14 bg-accent/12 rounded-full animate-float-delayed" />
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container mx-auto relative z-10 min-w-0">
         {/* Mobile: headline → photo (arrow area) → badges + CTAs. Laptop: original layout – image left, content right in one column */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 xl:gap-16 min-h-0 lg:min-h-[80vh] items-start lg:items-center">
           {/* 1. Headline – staggered entrance; tablet stays stacked like phone */}
@@ -56,8 +56,8 @@ const Hero = () => {
 
           {/* Schedule Meeting CTA – centered under image; on desktop sits in col 1 row 2 */}
           <AnimateIn animation="fade-up" delay={250} duration={700} className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-center -mt-10 lg:-mt-16">
-            <a href="/#contact" className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center">
-              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1">
+            <a href="/#contact" className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center min-w-0">
+              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-5 md:px-8 md:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1 whitespace-normal text-center">
                 Schedule Institutional Partnership Meeting
                 <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
               </Button>
@@ -66,7 +66,7 @@ const Hero = () => {
 
           {/* Block 3: Badges + Explore Programs – right column row 2 on desktop */}
           <AnimateIn animation="fade-up" delay={300} duration={700} className="order-4 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start -mt-16 lg:-mt-24">
+            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start -mt-16 lg:-mt-24 min-w-0 w-full">
               <div className="badge-alpha flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
                 <Star className="h-4 w-4 md:h-5 md:w-5" /> ALPHA
               </div>
@@ -87,9 +87,9 @@ const Hero = () => {
           </AnimateIn>
         </div>
 
-        {/* Key Statistics – full container width, no side gaps */}
-        <AnimateIn animation="fade-up" delay={200} duration={800} className="mt-12 md:mt-16">
-          <div className="w-full bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/20">
+        {/* Key Statistics – full container width, no side gaps; contained on mobile/tablet */}
+        <AnimateIn animation="fade-up" delay={200} duration={800} className="mt-12 md:mt-16 min-w-0">
+          <div className="w-full min-w-0 bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/20 overflow-hidden">
             <AnimatedStats variant="light" preset="hero" />
           </div>
         </AnimateIn>

@@ -181,7 +181,7 @@ export default function Chatbot() {
       {/* One-time hint bubble so visitors know they can chat */}
       {hintVisible && !open && (
         <div
-          className="fixed bottom-20 right-4 z-50 max-w-[220px] animate-in fade-in slide-in-from-bottom-2 duration-300"
+          className="fixed bottom-20 right-3 sm:right-4 z-50 max-w-[220px] animate-in fade-in slide-in-from-bottom-2 duration-300"
           role="tooltip"
         >
           <div className="bg-primary text-white text-sm font-medium rounded-2xl rounded-br-md px-4 py-3 shadow-lg border border-primary/20">
@@ -198,8 +198,8 @@ export default function Chatbot() {
         </div>
       )}
 
-      {/* Toggle button with visible label */}
-      <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">
+      {/* Toggle button with visible label – inset on mobile so content isn’t covered */}
+      <div className="fixed bottom-4 right-3 sm:right-4 z-50 flex items-center gap-2">
         <span
           className={`bg-primary text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg whitespace-nowrap transition-all duration-300 ${
             labelVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'

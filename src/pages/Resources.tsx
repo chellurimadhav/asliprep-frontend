@@ -18,7 +18,7 @@ export default function Resources() {
       
       {/* Hero */}
       <section className="pt-24 pb-16 hero-gradient hero-pattern">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="max-w-3xl">
             <span className="inline-block bg-accent/20 text-accent font-bold px-4 py-2 rounded-full text-sm mb-6">
               RESOURCES
@@ -35,7 +35,7 @@ export default function Resources() {
 
       {/* Downloadables */}
       <section className="py-20 section-teal">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4">
               DOWNLOADABLES
@@ -64,7 +64,7 @@ export default function Resources() {
 
       {/* Newsletter */}
       <section className="py-20 section-navy">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Stay Updated

@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimateIn animation="fade-up" duration={900} className="text-center mb-16">
           <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4">
             GET IN TOUCH

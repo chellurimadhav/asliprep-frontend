@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="absolute top-1/4 right-[45%] w-14 h-14 bg-accent/12 rounded-full animate-float-delayed" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Mobile: headline → photo (arrow area) → badges + CTAs. Laptop: original layout – image left, content right in one column */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-16 min-h-0 md:min-h-[75vh] lg:min-h-[80vh] items-start md:items-center">
           {/* 1. Headline – staggered entrance */}
@@ -94,7 +94,7 @@ const Hero = () => {
       {/* VIDYA AI Banner – slide-up on view */}
       <AnimateIn animation="fade-up" duration={600} className="mt-16 relative z-10">
         <div className="bg-secondary py-6 transition-all duration-300 hover:bg-secondary/95">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto">
             <div className="flex flex-wrap justify-center items-center gap-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center transition-transform duration-300 hover:scale-110">

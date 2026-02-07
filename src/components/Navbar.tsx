@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg transition-all duration-300">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <a href="/" className="flex items-center shrink-0 transition-opacity duration-300 hover:opacity-90">

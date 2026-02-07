@@ -18,7 +18,7 @@ export default function MeetVidya() {
       {/* Hero */}
       <section className="pt-24 pb-16 hero-gradient hero-pattern relative overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block bg-accent/20 text-accent font-bold px-4 py-2 rounded-full text-sm mb-6">
@@ -52,7 +52,7 @@ export default function MeetVidya() {
 
       {/* Features */}
       <section className="py-20 section-teal">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4">
               FEATURES & CAPABILITIES
@@ -77,7 +77,7 @@ export default function MeetVidya() {
 
       {/* CTA */}
       <section className="py-20 section-navy">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Demo or Trial Access

@@ -10,7 +10,7 @@ const SOCIAL_LINKS = [
 const Footer = () => {
   return (
     <footer className="section-navy pt-16 pb-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <AnimateIn animation="fade-up" delay={0} duration={500}>

@@ -7,7 +7,7 @@ const Newsletter = () => {
   return (
     <section className="py-16 section-navy relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <AnimateIn animation="scale" duration={1000} className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-4">
             <div className="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center">

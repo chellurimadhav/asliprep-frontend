@@ -114,10 +114,15 @@
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     letter-spacing: 0.01em;
@@ -196,29 +201,30 @@
   .card-teal p,
   .card-teal .opacity-90 { color: rgba(255, 255, 255, 0.95); }
 
-  /* Beta = subtle warm amber/cream */
+  /* Beta = subtle warm amber (white text like Alpha/Gamma) */
   .card-beta,
   .card-navy {
     background: linear-gradient(135deg, hsl(38, 55%, 55%) 0%, hsl(40, 50%, 62%) 100%);
-    color: hsl(28, 28%, 22%);
+    color: hsl(0, 0%, 100%);
   }
   .card-beta p,
   .card-navy p,
-  .card-navy [class*="opacity"] { color: rgba(28, 25, 22, 0.92); }
+  .card-navy [class*="opacity"] { color: rgba(255, 255, 255, 0.95); }
   .card-beta .text-white,
-  .card-navy .text-white { color: hsl(28, 28%, 22%) !important; }
+  .card-navy .text-white,
+  .card-beta [class*="text-white"] { color: hsl(0, 0%, 100%) !important; }
   .card-beta .program-icon-wrapper,
-  .card-navy .program-icon-wrapper { background: rgba(40, 35, 28, 0.2); border-color: rgba(40, 35, 28, 0.35); }
+  .card-navy .program-icon-wrapper { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.35); }
   .card-beta .program-icon-wrapper svg,
-  .card-navy .program-icon-wrapper svg { color: hsl(28, 28%, 22%); }
+  .card-navy .program-icon-wrapper svg { color: hsl(0, 0%, 100%); }
   .card-beta .bg-white\/10,
-  .card-navy .bg-white\/10 { background: rgba(40, 35, 28, 0.15); }
+  .card-navy .bg-white\/10 { background: rgba(255, 255, 255, 0.15); }
   .card-beta .bg-white\/20,
-  .card-navy .bg-white\/20 { background: rgba(40, 35, 28, 0.22); }
+  .card-navy .bg-white\/20 { background: rgba(255, 255, 255, 0.25); }
   .card-beta a.bg-white\/20,
-  .card-navy button.bg-white\/20 { background: rgba(40, 35, 28, 0.28); color: hsl(28, 28%, 22%); }
+  .card-navy button.bg-white\/20 { background: rgba(255, 255, 255, 0.25); color: hsl(0, 0%, 100%); }
   .card-beta a.bg-white\/20:hover,
-  .card-navy button.bg-white\/20:hover { background: rgba(40, 35, 28, 0.38); }
+  .card-navy button.bg-white\/20:hover { background: rgba(255, 255, 255, 0.35); }
 
   /* Gamma = standout soft teal (differentiates from blue & amber) */
   .card-gamma,

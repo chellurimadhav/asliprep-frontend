@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
       <div className="absolute top-20 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <AnimateIn animation="fade-up" duration={900} className="text-center mb-16">
           <div className="inline-flex justify-center mb-4">
             <img

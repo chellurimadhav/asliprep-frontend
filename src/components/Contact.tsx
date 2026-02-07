@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail, Send, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import AnimateIn from './AnimateIn';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +12,45 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+const WHATSAPP_NUMBER = '919346832477';
+
 const Contact = () => {
+  const [institution, setInstitution] = useState('');
+  const [contactPerson, setContactPerson] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [cityState, setCityState] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [studentCount, setStudentCount] = useState('');
+  const [programInterest, setProgramInterest] = useState<string[]>([]);
+  const [message, setMessage] = useState('');
+
+  const handleSubmitInquiry = (e: React.FormEvent) => {
+    e.preventDefault();
+    const lines = [
+      '*Institutional Partnership Inquiry*',
+      '',
+      `Institution: ${institution || '—'}`,
+      `Contact: ${contactPerson || '—'}`,
+      designation ? `Designation: ${designation}` : '',
+      `City/State: ${cityState || '—'}`,
+      `Email: ${email || '—'}`,
+      `Phone: ${phone || '—'}`,
+      studentCount ? `Students: ${studentCount}` : '',
+      programInterest.length ? `Program interest: ${programInterest.join(', ')}` : '',
+      '',
+      message ? `Message: ${message}` : '',
+    ].filter(Boolean);
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const toggleProgram = (name: string) => {
+    setProgramInterest((prev) =>
+      prev.includes(name) ? prev.filter((p) => p !== name) : [...prev, name]
+    );
+  };
+
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -22,12 +61,12 @@ const Contact = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-secondary mb-4">
             Partner With <span className="text-gradient-teal">Asli Prep</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-foreground/85 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Ready to elevate your institution's academic excellence? Let's discuss how we can work together.
           </p>
         </AnimateIn>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Info */}
           <AnimateIn animation="slide-left" duration={900} className="space-y-8">
           <div className="space-y-8">
@@ -103,43 +142,43 @@ const Contact = () => {
           <div className="bg-white rounded-2xl shadow-xl border border-border p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
             <h3 className="text-2xl font-bold text-secondary mb-6">Contact Us – Institutional Partnerships</h3>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmitInquiry}>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Institution Name *</label>
-                  <Input placeholder="Your School/Institution Name" className="bg-muted border-border" />
+                  <Input placeholder="Your School/Institution Name" className="bg-muted border-border" value={institution} onChange={(e) => setInstitution(e.target.value)} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Contact Person *</label>
-                  <Input placeholder="Your Full Name" className="bg-muted border-border" />
+                  <Input placeholder="Your Full Name" className="bg-muted border-border" value={contactPerson} onChange={(e) => setContactPerson(e.target.value)} />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Designation</label>
-                  <Input placeholder="Principal / Administrator" className="bg-muted border-border" />
+                  <Input placeholder="Principal / Administrator" className="bg-muted border-border" value={designation} onChange={(e) => setDesignation(e.target.value)} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">City/State *</label>
-                  <Input placeholder="Your City, State" className="bg-muted border-border" />
+                  <Input placeholder="Your City, State" className="bg-muted border-border" value={cityState} onChange={(e) => setCityState(e.target.value)} />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
-                  <Input type="email" placeholder="email@institution.com" className="bg-muted border-border" />
+                  <Input type="email" placeholder="email@institution.com" className="bg-muted border-border" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Phone *</label>
-                  <Input type="tel" placeholder="+91 9876543210" className="bg-muted border-border" />
+                  <Input type="tel" placeholder="+91 9876543210" className="bg-muted border-border" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Number of Students</label>
-                <Select>
+                <Select value={studentCount} onValueChange={setStudentCount}>
                   <SelectTrigger className="bg-muted border-border">
                     <SelectValue placeholder="Select student count" />
                   </SelectTrigger>
@@ -158,7 +197,12 @@ const Contact = () => {
                 <div className="flex flex-wrap gap-3">
                   {['Alpha', 'Beta', 'Gamma', 'All Programs'].map((program) => (
                     <label key={program} className="flex items-center gap-2 bg-muted px-4 py-2 rounded-lg cursor-pointer hover:bg-primary/10 transition-colors">
-                      <input type="checkbox" className="w-4 h-4 accent-primary" />
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 accent-primary"
+                        checked={programInterest.includes(program)}
+                        onChange={() => toggleProgram(program)}
+                      />
                       <span className="text-sm font-medium">{program}</span>
                     </label>
                   ))}
@@ -171,12 +215,14 @@ const Contact = () => {
                   placeholder="Tell us about your institution and requirements..." 
                   rows={4}
                   className="bg-muted border-border"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
 
               <Button type="submit" className="btn-lift w-full bg-primary hover:bg-primary/90 text-white font-bold py-6 text-lg transition-all duration-300">
-                <Send className="mr-2 h-5 w-5" />
-                Submit Inquiry
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Submit Inquiry (Opens WhatsApp)
               </Button>
             </form>
           </div>

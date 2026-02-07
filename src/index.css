@@ -186,45 +186,62 @@
     box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.15);
   }
 
-  /* Alpha = Blue */
+  /* Alpha = subtle blue (easy on the eye) */
+  .card-alpha,
   .card-teal {
-    background: linear-gradient(135deg, hsl(217, 65%, 42%) 0%, hsl(217, 60%, 50%) 100%);
+    background: linear-gradient(135deg, hsl(210, 50%, 48%) 0%, hsl(208, 52%, 55%) 100%);
     color: hsl(0, 0%, 100%);
   }
-
+  .card-alpha p,
   .card-teal p,
   .card-teal .opacity-90 { color: rgba(255, 255, 255, 0.95); }
 
-  /* Beta = Yellow */
+  /* Beta = subtle warm amber/cream */
+  .card-beta,
   .card-navy {
-    background: linear-gradient(135deg, hsl(45, 92%, 50%) 0%, hsl(48, 100%, 55%) 100%);
-    color: hsl(28, 30%, 18%);
+    background: linear-gradient(135deg, hsl(38, 55%, 55%) 0%, hsl(40, 50%, 62%) 100%);
+    color: hsl(28, 28%, 22%);
   }
-
+  .card-beta p,
   .card-navy p,
-  .card-navy [class*="opacity"] { color: rgba(30, 25, 20, 0.9); }
-  .card-navy .text-white { color: hsl(28, 30%, 18%) !important; }
-  .card-navy .program-icon-wrapper { background: rgba(30, 25, 20, 0.15); border-color: rgba(30, 25, 20, 0.3); }
-  .card-navy .program-icon-wrapper svg { color: hsl(28, 30%, 18%); }
-  .card-navy .bg-white\/10 { background: rgba(30, 25, 20, 0.12); }
-  .card-navy .bg-white\/20 { background: rgba(30, 25, 20, 0.18); }
-  .card-navy button.bg-white\/20 { background: rgba(30, 25, 20, 0.25); color: hsl(28, 30%, 18%); }
-  .card-navy button.bg-white\/20:hover { background: rgba(30, 25, 20, 0.35); }
+  .card-navy [class*="opacity"] { color: rgba(28, 25, 22, 0.92); }
+  .card-beta .text-white,
+  .card-navy .text-white { color: hsl(28, 28%, 22%) !important; }
+  .card-beta .program-icon-wrapper,
+  .card-navy .program-icon-wrapper { background: rgba(40, 35, 28, 0.2); border-color: rgba(40, 35, 28, 0.35); }
+  .card-beta .program-icon-wrapper svg,
+  .card-navy .program-icon-wrapper svg { color: hsl(28, 28%, 22%); }
+  .card-beta .bg-white\/10,
+  .card-navy .bg-white\/10 { background: rgba(40, 35, 28, 0.15); }
+  .card-beta .bg-white\/20,
+  .card-navy .bg-white\/20 { background: rgba(40, 35, 28, 0.22); }
+  .card-beta a.bg-white\/20,
+  .card-navy button.bg-white\/20 { background: rgba(40, 35, 28, 0.28); color: hsl(28, 28%, 22%); }
+  .card-beta a.bg-white\/20:hover,
+  .card-navy button.bg-white\/20:hover { background: rgba(40, 35, 28, 0.38); }
 
-  /* Gamma = Orange */
+  /* Gamma = standout soft teal (differentiates from blue & amber) */
+  .card-gamma,
   .card-gold {
-    background: linear-gradient(135deg, hsl(28, 85%, 48%) 0%, hsl(25, 90%, 54%) 100%);
+    background: linear-gradient(135deg, hsl(168, 45%, 38%) 0%, hsl(165, 42%, 46%) 100%);
     color: hsl(0, 0%, 100%);
   }
-
+  .card-gamma .text-white,
   .card-gold .text-white,
   .card-gold [class*="text-white"] { color: hsl(0, 0%, 100%) !important; }
+  .card-gamma .program-icon-wrapper,
   .card-gold .program-icon-wrapper { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.35); }
+  .card-gamma .program-icon-wrapper svg,
   .card-gold .program-icon-wrapper svg { color: hsl(0, 0%, 100%); }
+  .card-gamma span.bg-white\/20,
   .card-gold span.bg-white\/20 { background: rgba(255, 255, 255, 0.25); color: hsl(0, 0%, 100%); }
+  .card-gamma .bg-white\/10,
   .card-gold .bg-white\/10 { background: rgba(255, 255, 255, 0.15); }
+  .card-gamma .bg-white\/20,
   .card-gold .bg-white\/20 { background: rgba(255, 255, 255, 0.25); }
-  .card-gold button.bg-white\/20 { background: rgba(255, 255, 255, 0.25); color: hsl(28, 85%, 35%); }
+  .card-gamma a.bg-white\/20,
+  .card-gold button.bg-white\/20 { background: rgba(255, 255, 255, 0.25); color: hsl(168, 45%, 25%); }
+  .card-gamma a.bg-white\/20:hover,
   .card-gold button.bg-white\/20:hover { background: rgba(255, 255, 255, 0.35); }
 
   /* Contact section - WhatsApp CTA (teal-green, brand-aligned) */
@@ -276,25 +293,25 @@
     transform: translateY(-2px);
   }
 
-  /* Program Badges - blue, yellow, orange */
+  /* Program Badges - subtle, easy on the eye (match cards) */
   .badge-alpha,
   .badge-beta,
   .badge-gamma {
     transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-smooth);
   }
   .badge-alpha {
-    background: linear-gradient(135deg, hsl(217, 65%, 42%) 0%, hsl(217, 60%, 50%) 100%);
+    background: linear-gradient(135deg, hsl(210, 50%, 48%) 0%, hsl(208, 52%, 55%) 100%);
     @apply text-white font-bold px-4 py-2 rounded-lg;
   }
 
   .badge-beta {
-    background: linear-gradient(135deg, hsl(45, 92%, 50%) 0%, hsl(48, 100%, 55%) 100%);
-    color: hsl(28, 30%, 18%);
+    background: linear-gradient(135deg, hsl(38, 55%, 55%) 0%, hsl(40, 50%, 62%) 100%);
+    color: hsl(28, 28%, 22%);
     @apply font-bold px-4 py-2 rounded-lg;
   }
 
   .badge-gamma {
-    background: linear-gradient(135deg, hsl(28, 85%, 48%) 0%, hsl(25, 90%, 54%) 100%);
+    background: linear-gradient(135deg, hsl(168, 45%, 38%) 0%, hsl(165, 42%, 46%) 100%);
     @apply text-white font-bold px-4 py-2 rounded-lg;
   }
 
@@ -342,6 +359,15 @@
 
   .pulse-glow {
     animation: pulseGlow 2.5s ease-in-out infinite;
+  }
+
+  /* Chat button: subtle attention-grabbing pulse (runs a few times then stops) */
+  .chat-button-pulse {
+    animation: chatPulse 2s ease-in-out 4 forwards;
+  }
+  @keyframes chatPulse {
+    0%, 100% { box-shadow: 0 4px 14px hsl(var(--primary) / 0.4); }
+    50% { box-shadow: 0 6px 28px hsl(var(--primary) / 0.65); }
   }
 
   @keyframes pulseGlow {

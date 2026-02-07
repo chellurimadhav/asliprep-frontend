@@ -5,7 +5,7 @@ import AnimateIn from './AnimateIn';
 
 const Hero = () => {
   return (
-    <section className="relative pt-20 pb-12 md:pt-28 md:pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
+    <section className="relative pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
       {/* 3D Background Objects - styled for light background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-[10%] w-36 h-36 bg-primary/10 rounded-3xl animate-float-slow" style={{ transform: 'rotate(15deg)' }} />
@@ -23,28 +23,28 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Mobile: headline → photo (arrow area) → badges + CTAs. Laptop: original layout – image left, content right in one column */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 min-h-0 lg:min-h-[80vh] items-start lg:items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-16 min-h-0 md:min-h-[75vh] lg:min-h-[80vh] items-start md:items-center">
           {/* 1. Headline – staggered entrance */}
-          <AnimateIn animation="fade-up" delay={0} duration={700} className="order-1 lg:col-start-2 lg:row-start-1 text-center lg:text-left">
+          <AnimateIn animation="fade-up" delay={0} duration={700} className="order-1 md:col-start-2 md:row-start-1 text-center md:text-left">
             <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 md:mb-6 transition-all duration-300 hover:bg-primary/15">
               <Star className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
-              <span className="text-secondary font-medium text-xs md:text-sm">Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!</span>
+              <span className="text-secondary font-medium text-sm md:text-base">Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!</span>
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight mb-2 md:mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight mb-2 md:mb-4">
               Elevate Your School's{' '}
               <span className="text-gradient-teal">Academic Excellence</span>
             </h1>
-            <p className="text-base md:text-2xl font-bold text-primary mb-3 md:mb-6">
+            <p className="text-lg md:text-2xl font-bold text-primary mb-3 md:mb-6">
               Partner with us for IIT/NEET/Olympiad Success
             </p>
-            <p className="text-sm md:text-xl text-muted-foreground mb-4 md:mb-6 max-w-xl mx-auto lg:mx-0 line-clamp-3 md:line-clamp-none">
+            <p className="text-base md:text-xl text-foreground/85 mb-4 md:mb-6 max-w-xl mx-auto lg:mx-0 line-clamp-3 md:line-clamp-none leading-relaxed">
               Partner with us for comprehensive preparation programs that bridge the gap between school learning and competitive exam success.
             </p>
           </AnimateIn>
 
           {/* 2. Photo – scale-in + hover transition */}
-          <AnimateIn animation="fade-in" delay={150} duration={800} className="order-2 lg:col-start-1 lg:row-start-1 lg:row-span-2 flex justify-center lg:justify-start lg:items-center lg:-mt-20">
-            <div className="relative w-full max-w-sm mx-auto lg:max-w-xl xl:max-w-2xl hero-image-wrap">
+          <AnimateIn animation="fade-in" delay={150} duration={800} className="order-2 md:col-start-1 md:row-start-1 md:row-span-2 flex justify-center md:justify-start md:items-center md:-mt-16 lg:-mt-20">
+            <div className="relative w-full max-w-lg mx-auto md:max-w-xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl hero-image-wrap">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 hero-glow" />
               <img
                 src="/images/mainImage.png"
@@ -55,8 +55,8 @@ const Hero = () => {
           </AnimateIn>
 
           {/* Block 3: Badges + CTAs - on mobile full width below photo (same “arrow” area); on desktop we need to span or sit under block 1 */}
-          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-3 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start">
+          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-3 md:col-start-2 md:row-start-2 flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center md:justify-start">
               <div className="badge-alpha flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
                 <Star className="h-4 w-4 md:h-5 md:w-5" /> ALPHA
               </div>
@@ -67,7 +67,7 @@ const Hero = () => {
                 <Trophy className="h-4 w-4 md:h-5 md:w-5" /> GAMMA
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center lg:justify-start w-full max-w-2xl lg:max-w-none mx-auto">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center md:justify-start w-full max-w-2xl md:max-w-none mx-auto">
               <a href="/#contact" className="w-full sm:w-auto group/btn">
                 <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1">
                   Schedule Institutional Partnership Meeting

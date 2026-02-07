@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Star, Rocket, Trophy } from 'lucide-react';
 import {
   Table,
@@ -21,8 +22,9 @@ const comparisonData = [
 ];
 
 export default function ProgramComparison() {
+  const [open, setOpen] = useState(false);
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <div className="mt-16 text-center cursor-pointer">
           <div className="inline-flex items-center gap-4 bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-border">
@@ -37,15 +39,15 @@ export default function ProgramComparison() {
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-background">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Program Comparison: Alpha vs Beta vs Gamma</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-foreground">Program Comparison: Alpha vs Beta vs Gamma</DialogTitle>
         </DialogHeader>
-        <div className="rounded-xl border border-border overflow-hidden">
+        <div className="rounded-xl border border-border overflow-hidden bg-card">
           <Table>
             <TableHeader>
-              <TableRow className="bg-muted/50">
-                <TableHead className="font-bold w-[180px]">Feature</TableHead>
+              <TableRow className="bg-muted/70">
+                <TableHead className="font-bold w-[180px] text-foreground">Feature</TableHead>
                 <TableHead className="text-center">
                   <div className="flex flex-col items-center gap-1">
                     <Star className="h-5 w-5 text-primary" />
@@ -68,22 +70,22 @@ export default function ProgramComparison() {
             </TableHeader>
             <TableBody>
               {comparisonData.map((row, i) => (
-                <TableRow key={i} className={i % 2 === 0 ? 'bg-background' : 'bg-muted/20'}>
-                  <TableCell className="font-medium">{row.feature}</TableCell>
-                  <TableCell className="text-center text-muted-foreground">{row.alpha}</TableCell>
-                  <TableCell className="text-center text-muted-foreground">{row.beta}</TableCell>
-                  <TableCell className="text-center text-muted-foreground">{row.gamma}</TableCell>
+                <TableRow key={i} className={i % 2 === 0 ? 'bg-background' : 'bg-muted/30'}>
+                  <TableCell className="font-semibold text-foreground">{row.feature}</TableCell>
+                  <TableCell className="text-center text-foreground/90 font-medium">{row.alpha}</TableCell>
+                  <TableCell className="text-center text-foreground/90 font-medium">{row.beta}</TableCell>
+                  <TableCell className="text-center text-foreground/90 font-medium">{row.gamma}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </div>
-        <div className="flex justify-center gap-4 pt-4">
+        <div className="flex flex-wrap justify-center gap-4 pt-4">
           <Button asChild>
-            <a href="/#contact">Schedule Partnership Meeting</a>
+            <a href="/#contact" onClick={() => setOpen(false)}>Schedule Partnership Meeting</a>
           </Button>
           <Button variant="outline" asChild>
-            <a href="https://wa.me/919346832477" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919346832477" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               Chat on WhatsApp
             </a>
           </Button>

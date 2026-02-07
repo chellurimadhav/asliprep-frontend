@@ -29,10 +29,10 @@ export default function About() {
             <span className="inline-block bg-accent/20 text-accent font-bold px-4 py-2 rounded-full text-sm mb-6">
               ABOUT US
             </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 hero-headline-shadow">
               Bridging School Learning & <span className="text-gradient-gold">Competitive Success</span>
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/90 mb-8 hero-subtext-shadow">
               Asli Prep Foundation empowers Indian school students (Grades VI to X) with the knowledge, skills, and resources to excel in IIT-JEE, NEET, and Olympiads through high-quality academic support.
             </p>
             <Button asChild>
@@ -53,7 +53,7 @@ export default function About() {
                 <Target className="h-8 w-8 text-primary" />
               </div>
               <h2 className="text-2xl font-bold text-secondary mb-4">Our Mission</h2>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-foreground/90 text-lg leading-relaxed">
                 To empower Indian school students with the knowledge, skills, and resources to excel in competitive exams like IIT-JEE, NEET, and Olympiads by offering high-quality academic support through their schools.
               </p>
             </div>
@@ -62,7 +62,7 @@ export default function About() {
                 <Eye className="h-8 w-8 text-accent" />
               </div>
               <h2 className="text-2xl font-bold text-secondary mb-4">Our Vision</h2>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-foreground/90 text-lg leading-relaxed">
                 To be the leading educational foundation that bridges the gap between school learning and competitive exam preparation, ensuring every student has the opportunity to reach their full potential.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function About() {
                   <v.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-secondary mb-2">{v.title}</h3>
-                <p className="text-muted-foreground">{v.desc}</p>
+                <p className="text-foreground/85 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>

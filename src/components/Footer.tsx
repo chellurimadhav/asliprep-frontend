@@ -9,7 +9,6 @@ const Footer = () => {
           {/* Brand */}
           <AnimateIn animation="fade-up" delay={0} duration={500}>
           <div>
-            <img src="/images/asliprepfound.png" alt="ASLI Prep Foundation" className="h-16 w-auto mb-4" />
             <p className="text-white/70 mb-4">
               Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!
             </p>
@@ -30,22 +29,22 @@ const Footer = () => {
             <h4 className="text-white font-bold text-lg mb-4">Our Programs</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors duration-300">
                   Alpha – Foundation Program
                 </a>
               </li>
               <li>
-                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors duration-300">
                   Beta – IIT/NEET Preparation
                 </a>
               </li>
               <li>
-                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#programs" className="text-white/70 hover:text-accent transition-colors duration-300">
                   Gamma – Olympiad Excellence
                 </a>
               </li>
               <li>
-                <a href="/for-schools" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/for-schools" className="text-white/70 hover:text-accent transition-colors duration-300">
                   For Schools (B2B)
                 </a>
               </li>
@@ -59,22 +58,22 @@ const Footer = () => {
             <h4 className="text-white font-bold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/about" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/about" className="text-white/70 hover:text-accent transition-colors duration-300">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="/#testimonials" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#testimonials" className="text-white/70 hover:text-accent transition-colors duration-300">
                   Success Stories
                 </a>
               </li>
               <li>
-                <a href="/resources" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/resources" className="text-white/70 hover:text-accent transition-colors duration-300">
                   Resources
                 </a>
               </li>
               <li>
-                <a href="/#contact" className="text-white/70 hover:text-accent transition-colors">
+                <a href="/#contact" className="text-white/70 hover:text-accent transition-colors duration-300">
                   Contact Us
                 </a>
               </li>

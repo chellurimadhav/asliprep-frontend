@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Building2, TrendingUp, CalendarDays, Trophy, GraduationCap, Video } from 'lucide-react';
 
 const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 
@@ -36,6 +37,8 @@ function useCountUp(end: number, duration: number, startOnView = true) {
   return { count, ref };
 }
 
+const iconClass = 'w-10 h-10 md:w-12 md:h-12 mx-auto';
+
 const StatCard = ({ 
   number, 
   suffix = '', 
@@ -47,7 +50,7 @@ const StatCard = ({
   number: number; 
   suffix?: string; 
   label: string; 
-  icon: string; 
+  icon: React.ReactNode; 
   duration?: number;
   variant?: 'dark' | 'light';
 }) => {
@@ -56,7 +59,7 @@ const StatCard = ({
   if (variant === 'dark') {
     return (
       <div ref={ref} className="text-center p-6 md:p-8 bg-white/15 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all duration-300 group">
-        <div className="text-4xl md:text-5xl mb-3 transform group-hover:scale-110 transition-transform duration-300">{icon}</div>
+        <div className="mb-3 flex justify-center [&_svg]:text-white/90 [&_svg]:transition-transform [&_svg]:duration-300 group-hover:[&_svg]:scale-110">{icon}</div>
         <div className="text-2xl md:text-4xl font-bold text-accent tabular-nums">{count}{suffix}</div>
         <div className="text-sm md:text-base text-white/80 font-medium mt-1">{label}</div>
       </div>
@@ -65,7 +68,7 @@ const StatCard = ({
 
   return (
     <div ref={ref} className="text-center p-6 md:p-8 bg-white rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-300 group">
-      <div className="text-4xl md:text-5xl mb-3 transform group-hover:scale-110 transition-transform duration-300">{icon}</div>
+      <div className="mb-3 flex justify-center text-primary [&_svg]:text-primary [&_svg]:transition-transform [&_svg]:duration-300 group-hover:[&_svg]:scale-105">{icon}</div>
       <div className="text-2xl md:text-4xl font-bold text-primary tabular-nums">{count}{suffix}</div>
       <div className="text-sm md:text-base text-muted-foreground font-medium mt-1">{label}</div>
     </div>
@@ -73,17 +76,17 @@ const StatCard = ({
 };
 
 const heroStats = [
-  { number: 500, suffix: '+', label: 'Partner Schools', icon: '🏫' },
-  { number: 95, suffix: '%', label: 'Success Rate', icon: '📈', duration: 1500 },
-  { number: 5, suffix: '+', label: 'Years of Experience', icon: '📅', duration: 1200 },
-  { number: 50, suffix: '+', label: 'Awards Won', icon: '🏆' },
+  { number: 500, suffix: '+', label: 'Partner Schools', icon: <Building2 className={iconClass} strokeWidth={1.75} /> },
+  { number: 95, suffix: '%', label: 'Success Rate', icon: <TrendingUp className={iconClass} strokeWidth={1.75} />, duration: 1500 },
+  { number: 5, suffix: '+', label: 'Years of Experience', icon: <CalendarDays className={iconClass} strokeWidth={1.75} />, duration: 1200 },
+  { number: 50, suffix: '+', label: 'Awards Won', icon: <Trophy className={iconClass} strokeWidth={1.75} /> },
 ];
 
 const defaultStats = [
-  { number: 10000, suffix: '+', label: 'Active Students', icon: '🎓', duration: 2500 },
-  { number: 500, suffix: '+', label: 'Video Lectures', icon: '📹' },
-  { number: 50, suffix: '+', label: 'Partner Schools', icon: '🏫' },
-  { number: 95, suffix: '%', label: 'Success Rate', icon: '📈', duration: 1500 },
+  { number: 10000, suffix: '+', label: 'Active Students', icon: <GraduationCap className={iconClass} strokeWidth={1.75} />, duration: 2500 },
+  { number: 500, suffix: '+', label: 'Video Lectures', icon: <Video className={iconClass} strokeWidth={1.75} /> },
+  { number: 50, suffix: '+', label: 'Partner Schools', icon: <Building2 className={iconClass} strokeWidth={1.75} /> },
+  { number: 95, suffix: '%', label: 'Success Rate', icon: <TrendingUp className={iconClass} strokeWidth={1.75} />, duration: 1500 },
 ];
 
 export default function AnimatedStats({ variant = 'light', preset = 'default' }: { variant?: 'dark' | 'light'; preset?: 'hero' | 'default' }) {

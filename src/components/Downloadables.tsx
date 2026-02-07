@@ -39,7 +39,7 @@ const Downloadables = () => {
                   rel="noopener noreferrer"
                   className="inline-flex"
                 >
-                  <Button className="bg-primary hover:bg-primary/90">
+                  <Button className="bg-primary hover:bg-primary/90 transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-y-[-2px]">
                     <Download className="mr-2 h-4 w-4" />
                     Download Brochure
                   </Button>

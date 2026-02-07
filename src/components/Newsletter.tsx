@@ -26,7 +26,7 @@ const Newsletter = () => {
               placeholder="Enter your email" 
               className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
             />
-            <Button type="submit" className="bg-accent text-accent-foreground font-bold px-8 h-12 shrink-0">
+            <Button type="submit" className="bg-accent text-accent-foreground font-bold px-8 h-12 shrink-0 transition-all duration-300 hover:scale-105 hover:brightness-110">
               Subscribe
             </Button>
           </form>

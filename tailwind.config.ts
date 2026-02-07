@@ -77,8 +77,17 @@ export default {
         gamma: "hsl(var(--gamma-color))",
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+      },
+      transitionDuration: {
+        fast: '200ms',
+        normal: '300ms',
+        slow: '500ms',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'out-smooth': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -29,11 +29,11 @@ const Navbar = () => {
   const linkClass = "nav-link-hover text-foreground/80 hover:text-primary font-medium text-sm transition-colors duration-300 py-2";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg transition-all duration-300">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center shrink-0">
+          <a href="/" className="flex items-center shrink-0 transition-opacity duration-300 hover:opacity-90">
             <img src="/images/asliprepfound.png" alt="ASLI Prep Foundation" className="h-10 md:h-12 w-auto" />
           </a>
 

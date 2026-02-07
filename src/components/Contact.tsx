@@ -31,17 +31,17 @@ const Contact = () => {
           {/* Contact Info */}
           <AnimateIn animation="slide-left" duration={900} className="space-y-8">
           <div className="space-y-8">
-            <div className="card-teal rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+            <div className="card-teal rounded-2xl p-8 text-white transition-all duration-300 hover:shadow-xl">
+              <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-bold text-lg">Address</p>
-                    <p className="opacity-90">
+                    <p className="font-bold text-lg text-white">Address</p>
+                    <p className="text-white/95">
                       Plot No. 47, Rd No: 4A,<br />
                       Golden Tulip Estates, Kondapur,<br />
                       Hyderabad, Telangana - 500 084
@@ -50,7 +50,7 @@ const Contact = () => {
                       href="https://maps.google.com/?q=Plot+No.+47,+Rd+No:+4A,+Golden+Tulip+Estates,+Kondapur,+Hyderabad,+Telangana+500084" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-block mt-2 text-sm text-white/90 hover:text-accent underline"
+                      className="inline-block mt-2 text-sm text-white/95 hover:text-white underline"
                     >
                       View on Google Maps →
                     </a>
@@ -58,41 +58,41 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-bold text-lg">Phone</p>
-                    <p className="opacity-90">+91 9346832477</p>
+                    <p className="font-bold text-lg text-white">Phone</p>
+                    <p className="text-white/95">+91 9346832477</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-bold text-lg">Email</p>
-                    <p className="opacity-90">info@asliprep.com</p>
-                    <p className="opacity-90">asliprep@gmail.com</p>
+                    <p className="font-bold text-lg text-white">Email</p>
+                    <p className="text-white/95">info@asliprep.com</p>
+                    <p className="text-white/95">asliprep@gmail.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* WhatsApp CTA */}
+            {/* WhatsApp CTA - teal-green aligned with brand */}
             <a 
               href="https://wa.me/919346832477" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-[#25D366] text-white rounded-2xl p-6 hover:brightness-110 transition-all"
+              className="flex items-center gap-4 whatsapp-cta text-white rounded-2xl p-6 transition-all shadow-lg"
             >
               <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
                 <MessageCircle className="h-8 w-8" />
               </div>
               <div>
                 <p className="font-bold text-lg">Chat on WhatsApp</p>
-                <p className="opacity-90">Quick response guaranteed</p>
+                <p className="opacity-95">Quick response guaranteed</p>
               </div>
             </a>
           </div>
@@ -100,7 +100,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <AnimateIn animation="slide-right" delay={150} duration={900}>
-          <div className="bg-white rounded-2xl shadow-xl border border-border p-8">
+          <div className="bg-white rounded-2xl shadow-xl border border-border p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
             <h3 className="text-2xl font-bold text-secondary mb-6">Contact Us – Institutional Partnerships</h3>
             
             <form className="space-y-6">
@@ -174,7 +174,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button type="submit" className="btn-lift w-full bg-primary hover:bg-primary/90 text-white font-bold py-6 text-lg">
+              <Button type="submit" className="btn-lift w-full bg-primary hover:bg-primary/90 text-white font-bold py-6 text-lg transition-all duration-300">
                 <Send className="mr-2 h-5 w-5" />
                 Submit Inquiry
               </Button>

@@ -5,7 +5,7 @@ import AnimateIn from './AnimateIn';
 
 const Hero = () => {
   return (
-    <section className="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30">
+    <section className="relative pt-20 pb-12 md:pt-28 md:pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
       {/* 3D Background Objects - styled for light background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-[10%] w-36 h-36 bg-primary/10 rounded-3xl animate-float-slow" style={{ transform: 'rotate(15deg)' }} />
@@ -22,95 +22,101 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[80vh]">
-          {/* Left - Hero Image */}
-          <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60" />
-              <img
-                src="/images/mainImage.png"
-                alt="ASLI Prep - JEE NEET Olympiad Preparation"
-                className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl h-auto rounded-2xl shadow-2xl object-contain"
-              />
+        {/* Mobile: headline → photo (arrow area) → badges + CTAs. Laptop: original layout – image left, content right in one column */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 min-h-0 lg:min-h-[80vh] items-start lg:items-center">
+          {/* 1. Headline – staggered entrance */}
+          <AnimateIn animation="fade-up" delay={0} duration={700} className="order-1 lg:col-start-2 lg:row-start-1 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 md:mb-6 transition-all duration-300 hover:bg-primary/15">
+              <Star className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
+              <span className="text-secondary font-medium text-xs md:text-sm">Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!</span>
             </div>
-          </div>
-
-          {/* Right - Content (per DOCX) */}
-          <div className="order-1 lg:order-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-              <Star className="h-4 w-4 text-primary" />
-              <span className="text-secondary font-medium text-sm">Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight mb-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight mb-2 md:mb-4">
               Elevate Your School's{' '}
               <span className="text-gradient-teal">Academic Excellence</span>
             </h1>
-            <p className="text-xl md:text-2xl font-bold text-primary mb-6">
+            <p className="text-base md:text-2xl font-bold text-primary mb-3 md:mb-6">
               Partner with us for IIT/NEET/Olympiad Success
             </p>
-            <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-xl mx-auto lg:mx-0">
+            <p className="text-sm md:text-xl text-muted-foreground mb-4 md:mb-6 max-w-xl mx-auto lg:mx-0 line-clamp-3 md:line-clamp-none">
               Partner with us for comprehensive preparation programs that bridge the gap between school learning and competitive exam success.
             </p>
-            {/* Three prominent program cards: Alpha, Beta, Gamma (per DOCX) */}
-            <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
-              <div className="badge-alpha flex items-center gap-2 px-5 py-3 rounded-xl">
-                <Star className="h-5 w-5" /> ALPHA
+          </AnimateIn>
+
+          {/* 2. Photo – scale-in + hover transition */}
+          <AnimateIn animation="fade-in" delay={150} duration={800} className="order-2 lg:col-start-1 lg:row-start-1 lg:row-span-2 flex justify-center lg:justify-start lg:items-center lg:-mt-20">
+            <div className="relative w-full max-w-sm mx-auto lg:max-w-xl xl:max-w-2xl hero-image-wrap">
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 hero-glow" />
+              <img
+                src="/images/mainImage.png"
+                alt="ASLI Prep - JEE NEET Olympiad Preparation"
+                className="relative w-full h-auto rounded-2xl shadow-2xl object-contain hero-image"
+              />
+            </div>
+          </AnimateIn>
+
+          {/* Block 3: Badges + CTAs - on mobile full width below photo (same “arrow” area); on desktop we need to span or sit under block 1 */}
+          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-3 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start">
+              <div className="badge-alpha flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
+                <Star className="h-4 w-4 md:h-5 md:w-5" /> ALPHA
               </div>
-              <div className="badge-beta flex items-center gap-2 px-5 py-3 rounded-xl">
-                <Rocket className="h-5 w-5" /> BETA
+              <div className="badge-beta flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
+                <Rocket className="h-4 w-4 md:h-5 md:w-5" /> BETA
               </div>
-              <div className="badge-gamma flex items-center gap-2 px-5 py-3 rounded-xl">
-                <Trophy className="h-5 w-5" /> GAMMA
+              <div className="badge-gamma flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
+                <Trophy className="h-4 w-4 md:h-5 md:w-5" /> GAMMA
               </div>
             </div>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10">
-              <a href="/#contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center lg:justify-start w-full max-w-2xl lg:max-w-none mx-auto">
+              <a href="/#contact" className="w-full sm:w-auto group/btn">
+                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1">
                   Schedule Institutional Partnership Meeting
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
                 </Button>
               </a>
-              <a href="/#programs">
-                <Button size="lg" variant="outline" className="border-2 border-primary text-primary font-bold px-8 py-6 text-lg rounded-xl hover:bg-primary/5 transition-all">
+              <a href="/#programs" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-primary text-primary font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl hover:bg-primary/5 transition-all duration-300 hover:-translate-y-0.5">
                   Explore Programs
                 </Button>
               </a>
             </div>
-          </div>
+          </AnimateIn>
         </div>
 
-        {/* Key Statistics Section (per DOCX): Partner schools, Success rate, Years of experience, Awards won */}
-        <AnimateIn animation="fade-up" duration={800} className="mt-12 md:mt-16 max-w-4xl mx-auto">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-border shadow-lg">
+        {/* Key Statistics Section – fade-up with delay */}
+        <AnimateIn animation="fade-up" delay={200} duration={800} className="mt-12 md:mt-16 max-w-4xl mx-auto">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/20">
             <AnimatedStats variant="light" preset="hero" />
           </div>
         </AnimateIn>
       </div>
 
-      {/* VIDYA AI Banner */}
-      <div className="mt-16 bg-secondary py-6 relative z-10">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                <span className="text-2xl">🤖</span>
+      {/* VIDYA AI Banner – slide-up on view */}
+      <AnimateIn animation="fade-up" duration={600} className="mt-16 relative z-10">
+        <div className="bg-secondary py-6 transition-all duration-300 hover:bg-secondary/95">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center transition-transform duration-300 hover:scale-110">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <div>
+                  <p className="text-white font-bold text-lg">Meet our AI Assistant VIDYA</p>
+                  <p className="text-white/70 text-sm">Your 24/7 learning companion</p>
+                </div>
               </div>
-              <div>
-                <p className="text-white font-bold text-lg">Meet our AI Assistant VIDYA</p>
-                <p className="text-white/70 text-sm">Your 24/7 learning companion</p>
-              </div>
+              <a
+                href="https://www.aslilearn.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-accent text-accent-foreground font-bold px-6 py-2 rounded-lg hover:brightness-110 transition-all duration-300 hover:scale-105"
+              >
+                Try VIDYA Now →
+              </a>
             </div>
-            <a
-              href="https://www.aslilearn.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-accent text-accent-foreground font-bold px-6 py-2 rounded-lg hover:brightness-110 transition-all"
-            >
-              Try VIDYA Now →
-            </a>
           </div>
         </div>
-      </div>
+      </AnimateIn>
     </section>
   );
 };

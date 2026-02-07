@@ -63,10 +63,10 @@ const Programs = () => {
             const IconComponent = program.icon;
             const iconClass = program.name === 'ALPHA' ? 'program-icon-star' : program.name === 'BETA' ? 'program-icon-rocket' : 'program-icon-trophy';
             return (
-            <AnimateIn key={index} animation="fade-up" delay={index * 150} duration={800}>
+            <AnimateIn key={index} animation="fade-up" delay={index * 120} duration={750}>
             <Card 
               key={index} 
-              className={`program-card ${program.bgClass} border-0 card-hover overflow-hidden relative`}
+              className={`program-card ${program.bgClass} border-0 card-hover overflow-hidden relative transition-all duration-300`}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <CardHeader className="relative z-10">
@@ -79,24 +79,24 @@ const Programs = () => {
                   />
                   </div>
                   <div>
-                    <CardTitle className="text-3xl font-extrabold">
+                    <CardTitle className="text-3xl font-extrabold text-white">
                       {program.name}
                     </CardTitle>
-                    <p className="text-lg font-semibold opacity-90">{program.tagline}</p>
+                    <p className="text-lg font-semibold text-white/95">{program.tagline}</p>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="relative z-10 space-y-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="font-medium mb-2">{program.target}</p>
-                  <p className="text-sm opacity-80">📚 {program.grades}</p>
+                  <p className="font-medium mb-2 text-white text-inherit">{program.target}</p>
+                  <p className="text-sm text-white/90">📚 {program.grades}</p>
                 </div>
                 
                 <div>
-                  <p className="font-bold mb-2">Subjects Covered:</p>
+                  <p className="font-bold mb-2 text-white">Subjects Covered:</p>
                   <div className="flex flex-wrap gap-2">
                     {program.subjects.map((subject, i) => (
-                      <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">
+                      <span key={i} className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium text-inherit">
                         {subject}
                       </span>
                     ))}
@@ -105,16 +105,16 @@ const Programs = () => {
 
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <Target className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm">{program.focus}</p>
+                    <Target className="h-5 w-5 mt-0.5 flex-shrink-0 text-inherit" />
+                    <p className="text-sm text-white/95">{program.focus}</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <BookOpen className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm">Aligned: {program.alignment}</p>
+                    <BookOpen className="h-5 w-5 mt-0.5 flex-shrink-0 text-inherit" />
+                    <p className="text-sm text-white/95">Aligned: {program.alignment}</p>
                   </div>
                 </div>
 
-                <button className="btn-lift w-full mt-4 bg-white/20 hover:bg-white/30 transition-all py-3 rounded-xl font-bold">
+                <button className="btn-lift w-full mt-4 bg-white/20 hover:bg-white/30 transition-all py-3 rounded-xl font-bold text-white">
                   Explore {program.name} Program →
                 </button>
               </CardContent>

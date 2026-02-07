@@ -75,17 +75,17 @@ const WhyChooseUs = () => {
           </p>
         </AnimateIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {features.map((feature, index) => (
-            <AnimateIn key={index} animation="fade-up" delay={index * 120} duration={700}>
+            <AnimateIn key={index} animation="fade-up" delay={index * 100} duration={650} className="h-full">
             <div
-              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"
+              className="group h-full flex flex-col bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 ease-out-smooth hover:-translate-y-1"
             >
-              <div className={`w-14 h-14 ${feature.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+              <div className={`w-14 h-14 ${feature.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform flex-shrink-0`}>
                 <feature.icon className="h-7 w-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-              <p className="text-white/70">{feature.description}</p>
+              <p className="text-white/70 flex-1">{feature.description}</p>
             </div>
             </AnimateIn>
           ))}
@@ -94,7 +94,7 @@ const WhyChooseUs = () => {
         {/* Key Messages */}
         <div className="mt-16 grid md:grid-cols-2 gap-8">
           <AnimateIn animation="slide-left" delay={0} duration={800} className="md:col-span-1">
-          <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/30 rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
             <h3 className="text-2xl font-bold text-white mb-6">For Schools & Institutions</h3>
             <ul className="space-y-4">
               {[
@@ -113,7 +113,7 @@ const WhyChooseUs = () => {
           </AnimateIn>
           
           <AnimateIn animation="slide-right" delay={150} duration={800} className="md:col-span-1">
-          <div className="bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-sm border border-accent/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-sm border border-accent/30 rounded-2xl p-8 transition-all duration-300 hover:border-accent/50 hover:shadow-lg">
             <h3 className="text-2xl font-bold text-white mb-6">For Students & Parents</h3>
             <ul className="space-y-4">
               {[

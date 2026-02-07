@@ -60,7 +60,8 @@ const Testimonials = () => {
           <CarouselContent className="-ml-4">
           {testimonials.map((testimonial, index) => (
             <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-              <div className="card-hover bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+              <AnimateIn animation="fade-in" delay={index * 80} duration={500} className="h-full">
+              <div className="card-hover bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-300 h-full">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-accent text-accent" />
@@ -80,6 +81,7 @@ const Testimonials = () => {
                   </div>
                 </div>
               </div>
+              </AnimateIn>
             </CarouselItem>
           ))}
           </CarouselContent>

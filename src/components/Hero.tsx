@@ -43,7 +43,7 @@ const Hero = () => {
           </AnimateIn>
 
           {/* 2. Photo – scale-in + hover transition */}
-          <AnimateIn animation="fade-in" delay={150} duration={800} className="order-2 lg:col-start-1 lg:row-start-1 lg:row-span-2 flex justify-center lg:justify-start lg:items-center lg:-mt-20">
+          <AnimateIn animation="fade-in" delay={150} duration={800} className="order-2 lg:col-start-1 lg:row-start-1 flex justify-center lg:justify-start lg:items-start">
             <div className="relative w-full max-w-lg mx-auto lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl hero-image-wrap">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 hero-glow" />
               <img
@@ -54,9 +54,19 @@ const Hero = () => {
             </div>
           </AnimateIn>
 
-          {/* Block 3: Badges + CTAs - on mobile full width below photo (same “arrow” area); on desktop we need to span or sit under block 1 */}
-          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-3 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start">
+          {/* Schedule Meeting CTA – centered under image; on desktop sits in col 1 row 2 */}
+          <AnimateIn animation="fade-up" delay={250} duration={700} className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-center -mt-10 lg:-mt-16">
+            <a href="/#contact" className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center">
+              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1">
+                Schedule Institutional Partnership Meeting
+                <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
+              </Button>
+            </a>
+          </AnimateIn>
+
+          {/* Block 3: Badges + Explore Programs – right column row 2 on desktop */}
+          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-4 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start -mt-16 lg:-mt-24">
               <div className="badge-alpha flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
                 <Star className="h-4 w-4 md:h-5 md:w-5" /> ALPHA
               </div>
@@ -68,12 +78,6 @@ const Hero = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center lg:justify-start w-full max-w-2xl lg:max-w-none mx-auto">
-              <a href="/#contact" className="w-full sm:w-auto group/btn">
-                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1">
-                  Schedule Institutional Partnership Meeting
-                  <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
-                </Button>
-              </a>
               <a href="/#programs" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-primary text-primary font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl hover:bg-primary/5 transition-all duration-300 hover:-translate-y-0.5">
                   Explore Programs
@@ -83,9 +87,9 @@ const Hero = () => {
           </AnimateIn>
         </div>
 
-        {/* Key Statistics Section – fade-up with delay */}
-        <AnimateIn animation="fade-up" delay={200} duration={800} className="mt-12 md:mt-16 max-w-4xl mx-auto">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/20">
+        {/* Key Statistics – full container width, no side gaps */}
+        <AnimateIn animation="fade-up" delay={200} duration={800} className="mt-12 md:mt-16">
+          <div className="w-full bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:border-primary/20">
             <AnimatedStats variant="light" preset="hero" />
           </div>
         </AnimateIn>

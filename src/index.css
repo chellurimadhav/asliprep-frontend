@@ -259,6 +259,23 @@
     background: hsl(168, 52%, 45%);
   }
 
+  /* Contact section - LinkedIn CTA (brand blue, clear icon) */
+  .linkedin-cta {
+    background: #0A66C2;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .linkedin-cta:hover {
+    background: #004182;
+    color: #fff;
+  }
+  .linkedin-cta .linkedin-icon-wrap {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  .linkedin-cta:hover .linkedin-icon-wrap {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
   /* Text Gradients - aligned with refined palette */
   .text-gradient-gold {
     background: linear-gradient(90deg, hsl(40, 82%, 52%) 0%, hsl(42, 78%, 58%) 100%);

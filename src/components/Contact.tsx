@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Linkedin } from 'lucide-react';
 import AnimateIn from './AnimateIn';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -132,6 +132,22 @@ const Contact = () => {
               <div>
                 <p className="font-bold text-lg">Chat on WhatsApp</p>
                 <p className="opacity-95">Quick response guaranteed</p>
+              </div>
+            </a>
+
+            {/* LinkedIn – redirect link (same pattern as WhatsApp: clear icon + text) */}
+            <a 
+              href="https://www.linkedin.com/company/asliprep" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="linkedin-cta flex items-center gap-4 rounded-2xl p-6 shadow-lg"
+            >
+              <div className="linkedin-icon-wrap w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-white">
+                <Linkedin className="h-8 w-8" strokeWidth={2} />
+              </div>
+              <div>
+                <p className="font-bold text-lg text-white">Connect on LinkedIn</p>
+                <p className="text-white/95 text-sm">Follow us for updates</p>
               </div>
             </a>
           </div>

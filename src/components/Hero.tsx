@@ -5,7 +5,7 @@ import AnimateIn from './AnimateIn';
 
 const Hero = () => {
   return (
-    <section className="relative pt-20 pb-32 sm:pb-36 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-x-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
+    <section id="main-content" className="relative pt-20 pb-32 sm:pb-36 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-x-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" aria-label="Main content">
       {/* 3D Background Objects - styled for light background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-[10%] w-36 h-36 bg-primary/10 rounded-3xl animate-float-slow" style={{ transform: 'rotate(15deg)' }} />

@@ -30,7 +30,6 @@ const Navbar = () => {
   const moreLinks = [
     { label: 'For Schools', href: '/for-schools' },
     { label: 'Meet VIDYA', href: '/meet-vidya' },
-    { label: 'Resources', href: '/resources' },
     { label: 'Testimonials', href: '/#testimonials' },
   ];
 

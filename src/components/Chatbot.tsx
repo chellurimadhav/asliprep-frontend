@@ -133,7 +133,10 @@ export default function Chatbot() {
     <>
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-20 right-4 z-50 w-[calc(100vw-2rem)] max-w-md rounded-2xl bg-white shadow-2xl border border-border flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+        <div 
+          className="fixed bottom-20 z-50 w-[calc(100vw-2rem)] max-w-md rounded-2xl bg-white shadow-2xl border border-border flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300"
+          style={{ right: 'max(1rem, env(safe-area-inset-right))' }}
+        >
           <div className="bg-primary text-white px-4 py-3 flex items-center justify-between">
             <span className="font-bold">Asli Prep Assistant</span>
             <button
@@ -181,7 +184,8 @@ export default function Chatbot() {
       {/* One-time hint bubble so visitors know they can chat */}
       {hintVisible && !open && (
         <div
-          className="fixed bottom-20 right-3 sm:right-4 z-50 max-w-[220px] animate-in fade-in slide-in-from-bottom-2 duration-300"
+          className="fixed bottom-20 z-50 max-w-[220px] animate-in fade-in slide-in-from-bottom-2 duration-300"
+          style={{ right: 'max(1rem, env(safe-area-inset-right))' }}
           role="tooltip"
         >
           <div className="bg-primary text-white text-sm font-medium rounded-2xl rounded-br-md px-4 py-3 shadow-lg border border-primary/20">
@@ -199,7 +203,13 @@ export default function Chatbot() {
       )}
 
       {/* Toggle button with visible label – inset on mobile so content isn’t covered */}
-      <div className="fixed bottom-4 right-3 sm:right-4 z-50 flex items-center gap-2">
+      <div
+        className="fixed z-50 flex items-center gap-2"
+        style={{
+          bottom: 'max(1rem, env(safe-area-inset-bottom))',
+          right: 'max(1rem, env(safe-area-inset-right))',
+        }}
+      >
         <span
           className={`bg-primary text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg whitespace-nowrap transition-all duration-300 ${
             labelVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'

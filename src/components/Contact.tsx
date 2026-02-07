@@ -52,8 +52,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto">
+    <section id="contact" className="py-12 md:py-20 bg-background px-3 sm:px-4">
+      <div className="container mx-auto max-w-full">
         <AnimateIn animation="fade-up" duration={900} className="text-center mb-16">
           <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-4">
             GET IN TOUCH
@@ -155,7 +155,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <AnimateIn animation="slide-right" delay={150} duration={900}>
-          <div className="bg-white rounded-2xl shadow-xl border border-border p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
+          <div className="bg-white rounded-2xl shadow-xl border border-border p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/20 w-full max-w-full">
             <h3 className="text-2xl font-bold text-secondary mb-6">Contact Us – Institutional Partnerships</h3>
             
             <form className="space-y-6" onSubmit={handleSubmitInquiry}>

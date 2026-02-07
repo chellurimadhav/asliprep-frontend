@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,6 +10,14 @@ import {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Close mobile menu on scroll
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleScroll = () => setIsOpen(false);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen]);
 
   const mainLinks = [
     { label: 'Home', href: '/' },
@@ -28,8 +36,25 @@ const Navbar = () => {
 
   const linkClass = "nav-link-hover text-foreground/80 hover:text-primary font-medium text-sm transition-colors duration-300 py-2";
 
+  // On mobile: close menu and ensure hash links scroll to section (works when already on home or after nav)
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setIsOpen(false);
+    if (href.startsWith('/#') && window.location.pathname === '/') {
+      e.preventDefault();
+      const id = href.replace('/#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        requestAnimationFrame(() => {
+          setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        });
+      } else {
+        window.location.href = href;
+      }
+    }
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg transition-all duration-300">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isOpen ? 'bg-white shadow-md' : 'bg-white/98 backdrop-blur-lg'}`}>
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
@@ -87,19 +112,19 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation - slide down */}
+        {/* Mobile Navigation - slide down, solid background (no transparency) */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
             isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 invisible'
           }`}
         >
-          <div className="py-4 space-y-1">
+          <div className="py-4 space-y-1 bg-white border-t border-border">
             {mainLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 className={`block ${linkClass} px-2 py-2.5 rounded-lg hover:bg-muted/60`}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, link.href)}
               >
                 {link.label}
               </a>
@@ -109,7 +134,7 @@ const Navbar = () => {
                 key={link.label}
                 href={link.href}
                 className={`block ${linkClass} px-2 py-2.5 rounded-lg hover:bg-muted/60`}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, link.href)}
               >
                 {link.label}
               </a>
@@ -123,7 +148,7 @@ const Navbar = () => {
             >
               Meet VIDYA →
             </a>
-            <a href="/#contact" onClick={() => setIsOpen(false)} className="block pt-2">
+            <a href="/#contact" onClick={(e) => handleMobileNavClick(e, '/#contact')} className="block pt-2">
               <Button className="btn-lift w-full bg-primary hover:bg-primary/90 text-white font-semibold h-10 rounded-lg">
                 Partner With Us
               </Button>

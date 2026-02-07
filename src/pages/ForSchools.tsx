@@ -24,24 +24,24 @@ export default function ForSchools() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero */}
-      <section className="pt-24 pb-16 hero-gradient hero-pattern">
+      {/* Hero – same colours as main page: light bg, dark blue + green text for readability */}
+      <section className="pt-24 pb-16 bg-gradient-to-b from-slate-50 via-white to-teal-50/30">
         <div className="container mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block bg-accent/20 text-accent font-bold px-4 py-2 rounded-full text-sm mb-6">
+            <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-6">
               B2B PARTNERSHIPS
             </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-              For Schools & <span className="text-gradient-gold">Institutions</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-secondary mb-6">
+              For Schools & <span className="text-gradient-teal">Institutions</span>
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-foreground/90 mb-8 leading-relaxed">
               Elevate your institution's academic offerings with our proven three-tier learning system. Partner with Asli Prep Foundation for white-label solutions that integrate seamlessly.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button asChild className="btn-primary-hero">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl text-lg border-0 shadow-lg hover:shadow-xl transition-all">
                 <a href="/#contact">Schedule Partnership Meeting</a>
               </Button>
-              <Button variant="outline" className="btn-secondary-hero" asChild>
+              <Button variant="outline" asChild className="border-2 border-primary text-primary font-bold px-8 py-4 rounded-xl text-lg hover:bg-primary/5">
                 <a href="#benefits">View Benefits</a>
               </Button>
             </div>
@@ -79,18 +79,18 @@ export default function ForSchools() {
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block bg-accent text-accent-foreground font-bold px-4 py-2 rounded-full text-sm mb-4">
+            <span className="inline-block bg-primary/30 text-white font-bold px-4 py-2 rounded-full text-sm mb-4">
               IMPLEMENTATION
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              How It <span className="text-gradient-gold">Works</span>
+              How It <span className="text-gradient-teal">Works</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {process.map((p, i) => (
               <div key={i} className="relative">
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 h-full">
-                  <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-secondary font-bold mb-4">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">
                     {p.step}
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">{p.title}</h3>

@@ -5,7 +5,7 @@ import AnimateIn from './AnimateIn';
 
 const Hero = () => {
   return (
-    <section className="relative pt-20 pb-24 sm:pb-28 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-x-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
+    <section className="relative pt-20 pb-32 sm:pb-36 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-x-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" id="hero">
       {/* 3D Background Objects - styled for light background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-[10%] w-36 h-36 bg-primary/10 rounded-3xl animate-float-slow" style={{ transform: 'rotate(15deg)' }} />
@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="absolute top-1/4 right-[45%] w-14 h-14 bg-accent/12 rounded-full animate-float-delayed" />
       </div>
 
-      <div className="container mx-auto relative z-10 min-w-0">
+      <div className="container mx-auto relative z-10 min-w-0 px-4 sm:px-6 lg:px-8">
         {/* Mobile: headline → photo (arrow area) → badges + CTAs. Laptop: original layout – image left, content right in one column */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 xl:gap-16 min-h-0 lg:min-h-[80vh] items-start lg:items-center">
           {/* 1. Headline – staggered entrance; tablet stays stacked like phone */}
@@ -56,8 +56,8 @@ const Hero = () => {
 
           {/* Schedule Meeting CTA – centered under image; on desktop sits in col 1 row 2; on mobile clear gap below image */}
           <AnimateIn animation="fade-up" delay={250} duration={700} className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-center mt-4 lg:-mt-16">
-            <a href="/#contact" className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center min-w-0">
-              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-5 md:px-8 md:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1 whitespace-normal text-center">
+            <a href="/#contact" className="w-full max-w-full sm:max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center min-w-0">
+              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-5 md:px-8 md:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1 whitespace-normal text-center break-words">
                 Schedule Institutional Partnership Meeting
                 <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
               </Button>

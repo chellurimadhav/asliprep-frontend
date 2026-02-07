@@ -22,23 +22,21 @@ export default function About() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero */}
-      <section className="pt-24 pb-16 hero-gradient hero-pattern">
+      {/* Hero – same colours as main page: light bg, dark blue + green text for readability */}
+      <section className="pt-24 pb-16 bg-gradient-to-b from-slate-50 via-white to-teal-50/30">
         <div className="container mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block bg-accent/20 text-accent font-bold px-4 py-2 rounded-full text-sm mb-6">
+            <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-6">
               ABOUT US
             </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 hero-headline-shadow">
-              Bridging School Learning & <span className="text-gradient-gold">Competitive Success</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-secondary mb-6">
+              Bridging School Learning & <span className="text-gradient-teal">Competitive Success</span>
             </h1>
-            <p className="text-xl text-white/90 mb-8 hero-subtext-shadow">
+            <p className="text-xl text-foreground/90 mb-8 leading-relaxed">
               Asli Prep Foundation empowers Indian school students (Grades VI to X) with the knowledge, skills, and resources to excel in IIT-JEE, NEET, and Olympiads through high-quality academic support.
             </p>
-            <Button asChild>
-              <a href="/#contact" className="btn-primary-hero inline-flex">
-                Schedule Institutional Partnership Meeting
-              </a>
+            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl text-lg">
+              <a href="/#contact">Schedule Institutional Partnership Meeting</a>
             </Button>
           </div>
         </div>

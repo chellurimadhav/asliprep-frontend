@@ -15,23 +15,23 @@ export default function MeetVidya() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero */}
-      <section className="pt-24 pb-16 hero-gradient hero-pattern relative overflow-hidden">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      {/* Hero – same colours as main page: light bg, dark blue + green text for readability */}
+      <section className="pt-24 pb-16 bg-gradient-to-b from-slate-50 via-white to-teal-50/30 relative overflow-hidden">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block bg-accent/20 text-accent font-bold px-4 py-2 rounded-full text-sm mb-6">
+              <span className="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full text-sm mb-6">
                 MEET VIDYA
               </span>
-              <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-                Meet our AI Assistant <span className="text-gradient-gold">VIDYA</span>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-secondary mb-6">
+                Meet our AI Assistant <span className="text-gradient-teal">VIDYA</span>
               </h1>
-              <p className="text-xl text-white/90 mb-6">
+              <p className="text-xl text-foreground/90 mb-6 leading-relaxed">
                 Our AI Assistant helps students with features and capabilities for JEE, NEET, and Olympiads. Demo or trial access at www.aslilearn.ai
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button asChild className="btn-primary-hero">
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl text-lg">
                   <a href="https://www.aslilearn.ai" target="_blank" rel="noopener noreferrer">
                     Try VIDYA Now →
                   </a>
@@ -40,9 +40,9 @@ export default function MeetVidya() {
             </div>
             <div className="flex justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-accent/30 rounded-full blur-3xl animate-pulse" />
-                <div className="relative w-64 h-64 md:w-80 md:h-80 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 flex items-center justify-center">
-                  <Bot className="w-32 h-32 md:w-40 md:h-40 text-accent" />
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+                <div className="relative w-64 h-64 md:w-80 md:h-80 bg-primary/10 backdrop-blur-md rounded-3xl border border-primary/20 flex items-center justify-center">
+                  <Bot className="w-32 h-32 md:w-40 md:h-40 text-primary" />
                 </div>
               </div>
             </div>

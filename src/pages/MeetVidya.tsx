@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Bot, MessageCircle, Brain, Zap, BookOpen } from 'lucide-react';
+import { MessageCircle, Brain, Zap, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const features = [
@@ -39,11 +39,13 @@ export default function MeetVidya() {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-                <div className="relative w-64 h-64 md:w-80 md:h-80 bg-primary/10 backdrop-blur-md rounded-3xl border border-primary/20 flex items-center justify-center">
-                  <Bot className="w-32 h-32 md:w-40 md:h-40 text-primary" />
-                </div>
+              <div className="relative w-full max-w-md">
+                <div className="absolute -inset-2 bg-primary/20 rounded-3xl blur-xl" />
+                <img
+                  src="/images/meet-vidya-classroom.png"
+                  alt="ASLI Prep – instructor and students with VIDYA in the classroom"
+                  className="relative w-full h-auto rounded-2xl shadow-2xl object-cover border border-primary/20"
+                />
               </div>
             </div>
           </div>

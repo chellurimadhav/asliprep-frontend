@@ -54,8 +54,8 @@ const Hero = () => {
             </div>
           </AnimateIn>
 
-          {/* Schedule Meeting CTA – centered under image; on desktop sits in col 1 row 2 */}
-          <AnimateIn animation="fade-up" delay={250} duration={700} className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-center -mt-10 lg:-mt-16">
+          {/* Schedule Meeting CTA – centered under image; on desktop sits in col 1 row 2; on mobile clear gap below image */}
+          <AnimateIn animation="fade-up" delay={250} duration={700} className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-center mt-4 lg:-mt-16">
             <a href="/#contact" className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center min-w-0">
               <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-5 md:px-8 md:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1 whitespace-normal text-center">
                 Schedule Institutional Partnership Meeting
@@ -64,9 +64,9 @@ const Hero = () => {
             </a>
           </AnimateIn>
 
-          {/* Block 3: Badges + Explore Programs – right column row 2 on desktop */}
-          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-4 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start -mt-16 lg:-mt-24 min-w-0 w-full">
+          {/* Block 3: Badges + Explore Programs – right column row 2 on desktop; on mobile stacked below Schedule with no overlap */}
+          <AnimateIn animation="fade-up" delay={300} duration={700} className="order-4 lg:col-start-2 lg:row-start-2 flex flex-col items-center lg:items-start text-center lg:text-left mt-6 lg:-mt-24">
+            <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8 justify-center lg:justify-start min-w-0 w-full">
               <div className="badge-alpha flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl text-sm hover:scale-105 transition-transform duration-300">
                 <Star className="h-4 w-4 md:h-5 md:w-5" /> ALPHA
               </div>

@@ -66,7 +66,7 @@ const Contact = () => {
           </p>
         </AnimateIn>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Info */}
           <AnimateIn animation="slide-left" duration={900} className="space-y-8">
           <div className="space-y-8">
@@ -143,7 +143,7 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-secondary mb-6">Contact Us – Institutional Partnerships</h3>
             
             <form className="space-y-6" onSubmit={handleSubmitInquiry}>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Institution Name *</label>
                   <Input placeholder="Your School/Institution Name" className="bg-muted border-border" value={institution} onChange={(e) => setInstitution(e.target.value)} />
@@ -154,7 +154,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Designation</label>
                   <Input placeholder="Principal / Administrator" className="bg-muted border-border" value={designation} onChange={(e) => setDesignation(e.target.value)} />
@@ -165,7 +165,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
                   <Input type="email" placeholder="email@institution.com" className="bg-muted border-border" value={email} onChange={(e) => setEmail(e.target.value)} />

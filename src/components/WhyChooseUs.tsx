@@ -70,7 +70,7 @@ const WhyChooseUs = () => {
         </AnimateIn>
 
         {/* Top cards – common subtle style, aligned */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {features.map((feature, index) => (
             <AnimateIn key={index} animation="fade-up" delay={index * 100} duration={650} className="h-full flex">
             <div
@@ -87,7 +87,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Bottom two cards – aligned, differentiated colors to stand out */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch max-w-5xl mx-auto">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-5xl mx-auto">
           <AnimateIn animation="slide-left" delay={0} duration={800} className="flex h-full">
           <div className="h-full flex flex-col w-full text-left bg-gradient-to-br from-primary/25 to-primary/10 backdrop-blur-sm border border-primary/40 rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-6">For Schools & Institutions</h3>

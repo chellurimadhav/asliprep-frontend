@@ -11,8 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-
-const WHATSAPP_NUMBER = '919346832477';
+import { useBusinessInfo } from '@/hooks/useBusinessInfo';
 
 const Contact = () => {
   const [institution, setInstitution] = useState('');
@@ -24,6 +23,10 @@ const Contact = () => {
   const [studentCount, setStudentCount] = useState('');
   const [programInterest, setProgramInterest] = useState<string[]>([]);
   const [message, setMessage] = useState('');
+
+  const { data: business } = useBusinessInfo();
+  const whatsappNumber = business.whatsappNumber || '919346832477';
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   const handleSubmitInquiry = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +45,7 @@ const Contact = () => {
       message ? `Message: ${message}` : '',
     ].filter(Boolean);
     const text = encodeURIComponent(lines.join('\n'));
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
+    window.open(`${whatsappLink}?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   const toggleProgram = (name: string) => {
@@ -81,12 +84,12 @@ const Contact = () => {
                   <div>
                     <p className="font-bold text-lg text-white">Address</p>
                     <p className="text-white/95">
-                      Plot No. 47, Rd No: 4A,<br />
-                      Golden Tulip Estates, Kondapur,<br />
-                      Hyderabad, Telangana - 500 084
+                      {business.addressLines[0]}<br />
+                      {business.addressLines[1]}<br />
+                      {business.cityStatePin}
                     </p>
                     <a 
-                      href="https://maps.google.com/?q=Plot+No.+47,+Rd+No:+4A,+Golden+Tulip+Estates,+Kondapur,+Hyderabad,+Telangana+500084" 
+                      href={business.googleMapsUrl}
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-block mt-2 text-sm text-white/95 hover:text-white underline"
@@ -102,7 +105,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-lg text-white">Phone</p>
-                    <p className="text-white/95">+91 9346832477</p>
+                    <p className="text-white/95">{business.phoneDisplay}</p>
                   </div>
                 </div>
 
@@ -112,8 +115,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-lg text-white">Email</p>
-                    <p className="text-white/95">info@asliprep.com</p>
-                    <p className="text-white/95">asliprep@gmail.com</p>
+                    <p className="text-white/95">{business.primaryEmail}</p>
+                    {business.secondaryEmail && <p className="text-white/95">{business.secondaryEmail}</p>}
                   </div>
                 </div>
               </div>
@@ -121,7 +124,7 @@ const Contact = () => {
 
             {/* WhatsApp CTA - teal-green aligned with brand */}
             <a 
-              href="https://wa.me/919346832477" 
+              href={whatsappLink}
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-4 whatsapp-cta text-white rounded-2xl p-6 transition-all shadow-lg"

@@ -8,6 +8,8 @@ import About from "./pages/About";
 import ForSchools from "./pages/ForSchools";
 import MeetVidya from "./pages/MeetVidya";
 import Resources from "./pages/Resources";
+import Gallery from "./pages/Gallery";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import Chatbot from "./components/Chatbot";
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/for-schools" element={<ForSchools />} />
           <Route path="/meet-vidya" element={<MeetVidya />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

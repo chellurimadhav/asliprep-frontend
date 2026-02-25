@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, ExternalLink, Facebook, Instagram, Linkedin } from 'lucide-react';
 import AnimateIn from './AnimateIn';
+import { useBusinessInfo } from '@/hooks/useBusinessInfo';
 
 const SOCIAL_LINKS = [
   { href: 'https://www.instagram.com/asliprep?igsh=YXk2ZzNqdG05ZzBr', label: 'Instagram', Icon: Instagram },
@@ -8,6 +9,8 @@ const SOCIAL_LINKS = [
 ];
 
 const Footer = () => {
+  const { data: business } = useBusinessInfo();
+
   return (
     <footer className="section-navy pt-16 pb-8">
       <div className="container mx-auto">
@@ -110,19 +113,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-white/70 text-sm">
-                  Plot No. 47, Rd No: 4A, Golden Tulip Estates, Kondapur, Hyderabad - 500084
+                  {business.addressLines.join(' ')} {business.cityStatePin}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="tel:+919346832477" className="text-white/70 hover:text-accent">
-                  +91 9346832477
+                <a href={business.phoneTelHref} className="text-white/70 hover:text-accent">
+                  {business.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@asliprep.com" className="text-white/70 hover:text-accent">
-                  info@asliprep.com
+                <a href={`mailto:${business.primaryEmail}`} className="text-white/70 hover:text-accent">
+                  {business.primaryEmail}
                 </a>
               </li>
             </ul>

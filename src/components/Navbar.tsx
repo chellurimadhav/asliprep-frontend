@@ -24,6 +24,7 @@ const Navbar = () => {
     { label: 'Programs', href: '/#programs' },
     { label: 'Why Us', href: '/#about' },
     { label: 'About', href: '/about' },
+    { label: 'Gallery', href: '/gallery' },
     { label: 'Contact', href: '/#contact' },
   ];
 

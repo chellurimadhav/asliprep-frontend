@@ -11,6 +11,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Brain } from 'lucide-react';
+import { useBusinessInfo } from '@/hooks/useBusinessInfo';
 
 const comparisonData = [
   { feature: 'Target Grades', alpha: 'V to X', beta: 'VIII to X', gamma: 'VI to X' },
@@ -23,6 +24,9 @@ const comparisonData = [
 
 export default function ProgramComparison() {
   const [open, setOpen] = useState(false);
+  const { data: business } = useBusinessInfo();
+  const whatsappNumber = business.whatsappNumber || '919346832477';
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -85,7 +89,7 @@ export default function ProgramComparison() {
             <a href="/#contact" onClick={() => setOpen(false)}>Schedule Partnership Meeting</a>
           </Button>
           <Button variant="outline" asChild>
-            <a href="https://wa.me/919346832477" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               Chat on WhatsApp
             </a>
           </Button>

@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { CheckCircle, Building2, Palette, BarChart3, Users, FileCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useBusinessInfo } from '@/hooks/useBusinessInfo';
 
 const benefits = [
   { icon: Palette, title: 'White-Label Solutions', desc: 'Brand our content as your own. Customizable study materials that integrate seamlessly with your institution.' },
@@ -20,6 +21,10 @@ const process = [
 ];
 
 export default function ForSchools() {
+  const { data: business } = useBusinessInfo();
+  const whatsappNumber = business.whatsappNumber || '919346832477';
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -120,8 +125,8 @@ export default function ForSchools() {
                 <a href="/#contact">Contact Us</a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="https://wa.me/919346832477" target="_blank" rel="noopener noreferrer">
-                  WhatsApp: +91 9346832477
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  WhatsApp: {business.phoneDisplay}
                 </a>
               </Button>
             </div>

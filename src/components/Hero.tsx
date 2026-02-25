@@ -2,8 +2,24 @@ import { ArrowRight, Star, Rocket, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedStats from './AnimatedStats';
 import AnimateIn from './AnimateIn';
+import { useContent } from '@/hooks/useContent';
 
 const Hero = () => {
+  const { data: heroContent } = useContent<{
+    title: string;
+    subtitle: string;
+    tagline: string;
+    ctaText: string;
+    heroImageUrl: string;
+  }>("hero", {
+    title: "Elevate Your School's Academic Excellence",
+    subtitle: "Partner with us for IIT/NEET/Olympiad Success",
+    tagline:
+      "Partner with us for comprehensive preparation programs that bridge the gap between school learning and competitive exam success.",
+    ctaText: "Schedule Institutional Partnership Meeting",
+    heroImageUrl: "/images/mainImage.png",
+  });
+
   return (
     <section id="main-content" className="relative pt-20 pb-32 sm:pb-36 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20 overflow-x-hidden bg-gradient-to-b from-slate-50 via-white to-teal-50/30 hero-section-bg" aria-label="Main content">
       {/* 3D Background Objects - styled for light background */}
@@ -31,14 +47,14 @@ const Hero = () => {
               <span className="text-secondary font-medium text-sm md:text-base">Your Right School Partner for JEE | NEET | OLYMPIAD FOUNDATIONS!</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight mb-2 md:mb-4">
-              Elevate Your School's{' '}
-              <span className="text-gradient-teal">Academic Excellence</span>
+              {heroContent.title || "Elevate Your School's Academic Excellence"}
             </h1>
             <p className="text-lg md:text-2xl font-bold text-primary mb-3 md:mb-6">
-              Partner with us for IIT/NEET/Olympiad Success
+              {heroContent.subtitle || "Partner with us for IIT/NEET/Olympiad Success"}
             </p>
             <p className="text-base md:text-xl text-foreground/85 mb-4 md:mb-6 max-w-xl mx-auto lg:mx-0 line-clamp-3 lg:line-clamp-none leading-relaxed">
-              Partner with us for comprehensive preparation programs that bridge the gap between school learning and competitive exam success.
+              {heroContent.tagline ||
+                "Partner with us for comprehensive preparation programs that bridge the gap between school learning and competitive exam success."}
             </p>
           </AnimateIn>
 
@@ -47,7 +63,7 @@ const Hero = () => {
             <div className="relative w-full max-w-lg mx-auto lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl hero-image-wrap">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 hero-glow" />
               <img
-                src="/images/mainImage.png"
+                src={heroContent.heroImageUrl || "/images/mainImage.png"}
                 alt="ASLI Prep - JEE NEET Olympiad Preparation"
                 className="relative w-full h-auto rounded-2xl shadow-2xl object-contain hero-image"
               />
@@ -58,7 +74,7 @@ const Hero = () => {
           <AnimateIn animation="fade-up" delay={250} duration={700} className="order-3 lg:col-start-1 lg:row-start-2 flex justify-center lg:justify-center mt-4 lg:-mt-16">
             <a href="/#contact" className="w-full max-w-full sm:max-w-lg lg:max-w-xl xl:max-w-2xl group/btn flex justify-center min-w-0">
               <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-5 md:px-8 md:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/btn:[&_svg]:translate-x-1 whitespace-normal text-center break-words">
-                Schedule Institutional Partnership Meeting
+                {heroContent.ctaText || "Schedule Institutional Partnership Meeting"}
                 <ArrowRight className="ml-2 h-5 w-5 flex-shrink-0" />
               </Button>
             </a>

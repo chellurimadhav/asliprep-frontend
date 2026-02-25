@@ -1,5 +1,6 @@
 import { Star, Quote, Play } from 'lucide-react';
 import AnimateIn from './AnimateIn';
+import { useBusinessInfo } from '@/hooks/useBusinessInfo';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const testimonials = [
@@ -41,6 +42,9 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const { data: business } = useBusinessInfo();
+  const whatsappNumber = business.whatsappNumber || '919346832477';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi%2C%20I%27d%20like%20to%20request%20video%20testimonials`;
   return (
     <section id="testimonials" className="py-20 section-teal">
       <div className="container mx-auto">
@@ -102,7 +106,7 @@ const Testimonials = () => {
               </div>
             </div>
             <a 
-              href="https://wa.me/919346832477?text=Hi%2C%20I%27d%20like%20to%20request%20video%20testimonials" 
+              href={whatsappLink}
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-accent text-accent-foreground font-bold px-8 py-3 rounded-xl hover:brightness-110 transition-all whitespace-nowrap"
